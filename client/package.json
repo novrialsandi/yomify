@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"cookie-universal": "^2.2.2",
+		"gsap": "^3.12.7",
 		"motion": "^12.0.6",
 		"next": "15.1.6",
 		"react": "^19.0.0",
