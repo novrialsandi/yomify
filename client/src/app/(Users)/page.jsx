@@ -17,6 +17,15 @@ const MainPage = () => {
 	});
 	const [openedContent, setOpenedContent] = useState({}); // Track opened content
 
+	// Define content using percentage-based positions
+	const content = [
+		{ x: 50, y: 50, content: "red", detail: "Wish" },
+		{ x: 50, y: 70, content: "green", detail: "Who & Who" },
+		{ x: 83, y: 78, content: "blue", detail: "Wedding Photo" },
+		{ x: 70, y: 40, content: "yellow", detail: "31 Februari 2025" },
+		{ x: 90, y: 53, content: "orange", detail: "Tipsy" },
+	];
+
 	// Function to update image size
 	const updateImageSize = () => {
 		if (imageRef.current) {
@@ -33,15 +42,6 @@ const MainPage = () => {
 		window.addEventListener("resize", updateImageSize);
 		return () => window.removeEventListener("resize", updateImageSize);
 	}, []);
-
-	// Define content using percentage-based positions
-	const content = [
-		{ x: 50, y: 50, content: "red", detail: "Wish" },
-		{ x: 50, y: 70, content: "green", detail: "Who & Who" },
-		{ x: 83, y: 78, content: "blue", detail: "Wedding Photo" },
-		{ x: 70, y: 40, content: "yellow", detail: "31 Februari 2025" },
-		{ x: 90, y: 53, content: "orange", detail: "Tipsy" },
-	];
 
 	// Function to toggle specific modal and mark content as opened
 	const toggleModal = (color) => {
