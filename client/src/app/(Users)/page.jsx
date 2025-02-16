@@ -8,6 +8,7 @@ const MainPage = () => {
 	const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
 	const imageRef = useRef(null);
 	const audioRef = useRef(null);
+	const selectSoundRef = useRef(null);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [modalList, setModalList] = useState(false);
 	const [openedContent, setOpenedContent] = useState({});
@@ -37,7 +38,16 @@ const MainPage = () => {
 		}
 	};
 
+	const playSelectSound = () => {
+		if (selectSoundRef.current) {
+			selectSoundRef.current.currentTime = 0; // Reset the audio to start
+			selectSoundRef.current.play();
+		}
+	};
+
 	const handleClick = (color) => {
+		playSelectSound(); // Play select sound for all content clicks
+
 		if (color === "purple") {
 			handleMusicToggle();
 			// Mark as opened in the list without showing modal
@@ -76,14 +86,18 @@ const MainPage = () => {
 		updateImageSize();
 		window.addEventListener("resize", updateImageSize);
 		if (audioRef.current) {
-			audioRef.current.volume = 0.3; // 70% volume
+			audioRef.current.volume = 0.3; // 30% volume
+		}
+		if (selectSoundRef.current) {
+			selectSoundRef.current.volume = 0.5; // 50% volume for select sound
 		}
 		return () => window.removeEventListener("resize", updateImageSize);
 	}, []);
 
 	return (
 		<div className="relative flex items-center w-full">
-			<audio ref={audioRef} src="/audio/bg_music.mp3" loop />
+			<audio ref={audioRef} src="/audio/bg-music.mp3" loop />
+			<audio ref={selectSoundRef} src="/audio/menu-select.mp3" />
 
 			{/* Modal List */}
 			<Modal visible={modalList} preventClose position="center">
@@ -151,7 +165,10 @@ const MainPage = () => {
 					<Icon
 						icon="hugeicons:note-03"
 						className="text-white text-5xl hover:drop-shadow-[0_0_6px_rgba(255,255,0,0.7)]"
-						onClick={() => setModalList((prev) => !prev)}
+						onClick={() => {
+							playSelectSound();
+							setModalList((prev) => !prev);
+						}}
 					/>
 				</div>
 
