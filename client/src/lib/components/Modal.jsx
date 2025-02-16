@@ -1,16 +1,15 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { iconSvg } from '../Icons/icon';
+import React, { useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Modal = ({
-	position = 'right',
+	position = "right",
 	className,
 	children,
 	visible,
-	onClose,
-	preventClose = false
+	onClose = () => {},
+	preventClose = false,
 }) => {
 	const modalRef = useRef(null);
 
@@ -22,83 +21,83 @@ const Modal = ({
 				onClose(false);
 			}
 		};
-		document.addEventListener('mousedown', handleClickOutside);
+		document.addEventListener("mousedown", handleClickOutside);
 		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener("mousedown", handleClickOutside);
 		};
 	}, [onClose]);
 
 	useEffect(() => {
 		if (visible) {
-			document.body.classList.add('overflow-hidden');
+			document.body.classList.add("overflow-hidden");
 		} else {
-			document.body.classList.remove('overflow-hidden');
+			document.body.classList.remove("overflow-hidden");
 		}
 	}, [visible]);
 
 	const getInitialPosition = () => {
 		switch (position) {
-			case 'left':
-				return { x: '-100%' };
-			case 'right':
-				return { x: '100%' };
-			case 'top':
-				return { y: '-100%' };
-			case 'bottom':
-				return { y: '100%' };
-			case 'center':
+			case "left":
+				return { x: "-100%" };
+			case "right":
+				return { x: "100%" };
+			case "top":
+				return { y: "-100%" };
+			case "bottom":
+				return { y: "100%" };
+			case "center":
 				return { scale: 0.9, opacity: 0 };
 			default:
-				return { x: '100%' };
+				return { x: "100%" };
 		}
 	};
 
 	const getAnimatePosition = () => {
 		switch (position) {
-			case 'left':
-			case 'right':
-				return { x: '0%' };
-			case 'top':
-			case 'bottom':
-				return { y: '0%' };
-			case 'center':
+			case "left":
+			case "right":
+				return { x: "0%" };
+			case "top":
+			case "bottom":
+				return { y: "0%" };
+			case "center":
 				return { scale: 1, opacity: 1 };
 			default:
-				return { x: '0%' };
+				return { x: "0%" };
 		}
 	};
 
 	const getExitPosition = () => {
 		switch (position) {
-			case 'left':
-				return { x: '-100%' };
-			case 'right':
-				return { x: '100%' };
-			case 'top':
-				return { y: '-100%' };
-			case 'bottom':
-				return { y: '100%' };
-			case 'center':
+			case "left":
+				return { x: "-100%" };
+			case "right":
+				return { x: "100%" };
+			case "top":
+				return { y: "-100%" };
+			case "bottom":
+				return { y: "100%" };
+			case "center":
 				return { scale: 0.9, opacity: 0 };
 			default:
-				return { x: '100%' };
+				return { x: "100%" };
 		}
 	};
 
 	const getModalPosition = () => {
 		switch (position) {
-			case 'left':
-				return 'items-center justify-start';
-			case 'right':
-				return 'items-center justify-end';
-			case 'top':
-				return 'items-start justify-center';
-			case 'bottom':
-				return 'items-end justify-center';
-			case 'center':
-				return 'items-center justify-center';
+			case "left":
+				return "items-center justify-start";
+			case "right":
+				return "items-center justify-end";
+			case "top":
+				return "items-start justify-center";
+			case "bottom":
+				return "items-end justify-center";
+			case "center":
+				return "items-center justify-center";
 			default:
-				return 'items-center justify-end';
+				return "items-center justify-end";
 		}
 	};
 
@@ -120,7 +119,7 @@ const Modal = ({
 						initial={getInitialPosition()}
 						animate={getAnimatePosition()}
 						exit={getExitPosition()}
-						transition={{ type: 'tween', duration: 0.3 }}
+						transition={{ type: "tween", duration: 0.3 }}
 					>
 						{preventClose ? (
 							<></>
@@ -129,7 +128,7 @@ const Modal = ({
 								className="absolute right-4 top-4 rounded-lg bg-color/background/component-card transition-all duration-100 hover:bg-color/border/component-border"
 								onClick={() => onClose(false)}
 							>
-								{iconSvg.closeSvg}
+								x
 							</button>
 						)}
 
