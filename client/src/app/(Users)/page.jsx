@@ -40,17 +40,16 @@ const MainPage = () => {
 
 	const playSelectSound = () => {
 		if (selectSoundRef.current) {
-			selectSoundRef.current.currentTime = 0; // Reset the audio to start
+			selectSoundRef.current.currentTime = 0;
 			selectSoundRef.current.play();
 		}
 	};
 
 	const handleClick = (color) => {
-		playSelectSound(); // Play select sound for all content clicks
+		playSelectSound();
 
 		if (color === "purple") {
 			handleMusicToggle();
-			// Mark as opened in the list without showing modal
 			setOpenedContent((prev) => ({
 				...prev,
 				[color]: true,
@@ -86,18 +85,18 @@ const MainPage = () => {
 		updateImageSize();
 		window.addEventListener("resize", updateImageSize);
 		if (audioRef.current) {
-			audioRef.current.volume = 0.3; // 30% volume
+			audioRef.current.volume = 0.3;
 		}
 		if (selectSoundRef.current) {
-			selectSoundRef.current.volume = 0.5; // 50% volume for select sound
+			selectSoundRef.current.volume = 0.5;
 		}
 		return () => window.removeEventListener("resize", updateImageSize);
 	}, []);
 
 	return (
 		<div className="relative flex items-center w-full">
-			<audio ref={audioRef} src="/audio/bg-music.mp3" loop />
-			<audio ref={selectSoundRef} src="/audio/menu-select.mp3" />
+			<audio ref={audioRef} src="/audio/bg-music.mp3" loop preload="auto" />
+			<audio ref={selectSoundRef} src="/audio/menu-select.mp3" preload="auto" />
 
 			{/* Modal List */}
 			<Modal visible={modalList} preventClose position="center">
@@ -175,27 +174,51 @@ const MainPage = () => {
 				{/* Dynamically positioned content */}
 				{imageSize.width > 0 &&
 					imageSize.height > 0 &&
-					content.map((item, index) => (
-						<div
-							key={index}
-							className="absolute rounded-full flex items-center justify-center text-white font-bold text-4xl transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
-							style={{
-								left: `${(item.x / 100) * imageSize.width}px`,
-								top: `${(item.y / 100) * imageSize.height}px`,
-								width: `${imageSize.width * 0.08}px`,
-								height: `${imageSize.width * 0.08}px`,
-								backgroundColor: item.content,
-							}}
-							onClick={() => handleClick(item.content)}
-						>
-							{item.content === "purple" && (
-								<Icon
-									icon={isPlaying ? "mdi:music-note" : "mdi:music-note-off"}
-									className="text-white text-2xl"
-								/>
-							)}
-						</div>
-					))}
+					content.map((item, index) => {
+						const itemSize = imageSize.width * 0.08;
+						const isActivePurple = item.content === "purple" && isPlaying;
+
+						return (
+							<div
+								key={index}
+								className={`absolute rounded-full flex items-center justify-center text-white font-bold transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300`}
+								style={{
+									left: `${(item.x / 100) * imageSize.width}px`,
+									top: `${(item.y / 100) * imageSize.height}px`,
+									width: `${itemSize}px`,
+									height: `${itemSize}px`,
+									backgroundColor: item.content,
+									fontSize: `${itemSize * 0.3}px`,
+								}}
+								onClick={() => handleClick(item.content)}
+							>
+								{isActivePurple && (
+									<div className="absolute w-full h-full">
+										<img
+											src="/contents/musical-notes.gif"
+											alt=""
+											className="absolute"
+											style={{
+												width: `${itemSize * 1.2}px`,
+												top: `-${itemSize * 1.2}px`,
+												right: `-${itemSize * 0.2}px`,
+											}}
+										/>
+										<img
+											src="/contents/musical-notes.gif"
+											alt=""
+											className="absolute"
+											style={{
+												width: `${itemSize * 1.2}px`,
+												top: `-${itemSize * 1.5}px`,
+												left: `-${itemSize * 2.8}px`,
+											}}
+										/>
+									</div>
+								)}
+							</div>
+						);
+					})}
 			</div>
 		</div>
 	);
