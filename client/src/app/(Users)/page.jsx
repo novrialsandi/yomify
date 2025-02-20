@@ -153,7 +153,7 @@ const MainPage = () => {
 			<div className="relative w-full">
 				<img
 					ref={imageRef}
-					src="/bg.jpeg"
+					src="/bg.png"
 					alt=""
 					className="w-full h-auto max-h-svh"
 					onLoad={updateImageSize}
