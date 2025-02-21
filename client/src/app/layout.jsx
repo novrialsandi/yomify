@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-	title: "Yomi in Action",
+	title: "Yomi's Project",
 	description:
 		"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
 };
