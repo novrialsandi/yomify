@@ -9,14 +9,14 @@ const singleDay = Single_Day({
 });
 
 export const metadata = {
-	title: "Yomi's Project",
+	title: "Yomify",
 	description:
 		"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
 	metadataBase: new URL("https://www.yomify.com"),
 	openGraph: {
 		type: "website",
 		url: "https://www.yomify.com/",
-		title: "Yomi's Project",
+		title: "Yomify",
 		description:
 			"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
 		images: [
@@ -29,7 +29,7 @@ export const metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Yomi's Project",
+		title: "Yomify",
 		description:
 			"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
 		images: ["/meta.png"],
