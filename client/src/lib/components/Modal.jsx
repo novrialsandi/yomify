@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Icon } from "@iconify/react";
 
 const Modal = ({
 	position = "right",
@@ -18,14 +19,19 @@ const Modal = ({
 			if (preventClose) {
 				return;
 			} else if (modalRef.current && !modalRef.current.contains(event.target)) {
-				onClose(false);
+				onClose(); // Changed from onClose(false) to just onClose()
 			}
 		};
-		document.addEventListener("mousedown", handleClickOutside);
+
+		// Only add the event listener if the modal is visible
+		if (visible) {
+			document.addEventListener("mousedown", handleClickOutside);
+		}
+
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
-	}, [onClose]);
+	}, [onClose, preventClose, visible]); // Added visible to dependency array
 
 	useEffect(() => {
 		if (visible) {
@@ -101,6 +107,12 @@ const Modal = ({
 		}
 	};
 
+	const handleClose = () => {
+		if (!preventClose) {
+			onClose(); // Changed from onClose(false) to just onClose()
+		}
+	};
+
 	return (
 		<AnimatePresence mode="wait">
 			{visible && (
@@ -121,17 +133,13 @@ const Modal = ({
 						exit={getExitPosition()}
 						transition={{ type: "tween", duration: 0.3 }}
 					>
-						{preventClose ? (
-							<></>
-						) : (
-							<button
-								className="absolute right-4 top-4 rounded-lg bg-color/background/component-card transition-all duration-100 hover:bg-color/border/component-border"
-								onClick={() => onClose(false)}
-							>
-								x
-							</button>
+						{!preventClose && (
+							<Icon
+								icon="mingcute:close-fill"
+								className="absolute right-2 top-2 text-white text-2xl cursor-pointer"
+								onClick={handleClose}
+							/>
 						)}
-
 						{children}
 					</motion.div>
 				</motion.div>

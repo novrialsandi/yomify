@@ -161,7 +161,21 @@ const Content = () => {
 										)}
 									</td>
 									<td className="px-4 h-10">
-										{openedContent[item.name] ? item.detail : "????"}
+										{openedContent[item.name] ? (
+											item.name === "globe" ? (
+												<a
+													href="https://www.google.com/maps/place/Ndalem+Hanoman/@-7.7935397,110.3693196,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a59f1b125f11b:0xc4edf781ca003a86!8m2!3d-7.7935397!4d110.3718945!16s%2Fg%2F11vjpvrj_9?entry=ttu&g_ep=EgoyMDI1MDIxOC4wIKXMDSoASAFQAw%3D%3D"
+													target="_blank"
+													rel="noreferrer"
+												>
+													{item.detail}
+												</a>
+											) : (
+												item.detail
+											)
+										) : (
+											"????"
+										)}
 									</td>
 								</tr>
 							))}
@@ -178,25 +192,27 @@ const Content = () => {
 						key={item.name}
 						visible={modalContent[item.name]}
 						position="center"
+						onClose={() => toggleModal(item.name)} // This will now work correctly
 					>
 						<div className="text-white text-center flex flex-col justify-center items-center p-6">
 							<div className="text-xl font-semibold mb-4">
-								<img src={item.img} alt="" className="w-20 h-auto" />
+								<img src={item.img} alt="" className="h-32 w-auto" />
 							</div>
-							<p className="text-lg">{item.detail}</p>
-							<button
-								className="mt-4 px-4 py-2 bg-gray-700 rounded-md"
-								onClick={() => {
-									playClickSound();
-									toggleModal(item.name);
-								}}
-							>
-								Close
-							</button>
+							{item.name === "globe" ? (
+								<a
+									href="https://www.google.com/maps/place/Ndalem+Hanoman/@-7.7935397,110.3693196,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a59f1b125f11b:0xc4edf781ca003a86!8m2!3d-7.7935397!4d110.3718945!16s%2Fg%2F11vjpvrj_9?entry=ttu&g_ep=EgoyMDI1MDIxOC4wIKXMDSoASAFQAw%3D%3D"
+									target="_blank"
+									rel="noreferrer"
+									className="text-lg"
+								>
+									{item.detail}
+								</a>
+							) : (
+								<p className="text-lg">{item.detail}</p>
+							)}
 						</div>
 					</Modal>
 				))}
-
 			{/* Image Container */}
 			<div className="relative w-full">
 				<img
