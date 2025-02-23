@@ -1,18 +1,20 @@
 import Content from "@/lib/views/demo/Content";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
 	title: "Yomify - Demo",
 	description:
-		"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
-	metadataBase: new URL("https://www.yomify.com"),
+		"Interactive wedding invitations, company profiles, and life documentation with ease.",
+	metadataBase: new URL("https://www.yomify.com/demo"),
 	openGraph: {
 		type: "website",
-		url: "https://www.yomify.com/demo",
+		url: "https://www.yomify.com/demo/",
 		title: "Yomify - Demo",
-		description: "Interactive wedding invitations demo",
+		description:
+			"Interactive wedding invitations, company profiles, and life documentation with ease.",
 		images: [
 			{
-				url: "/demo/bg.png",
+				url: "/meta.png",
 				width: 1200,
 				height: 630,
 			},
@@ -21,8 +23,9 @@ export const metadata = {
 	twitter: {
 		card: "summary_large_image",
 		title: "Yomify - Demo",
-		description: "Interactive wedding invitations demo",
-		images: ["/demo/bg.png"],
+		description:
+			"Interactive wedding invitations, company profiles, and life documentation with ease.",
+		images: ["/meta.png"],
 	},
 };
 
@@ -30,6 +33,7 @@ const MainPage = () => {
 	return (
 		<div className="relative flex items-center w-full">
 			<Content />
+			<GoogleAnalytics gaId="G-NW36Y5FXGB" />
 		</div>
 	);
 };

@@ -1,4 +1,5 @@
 import LandingPage from "@/lib/views/LandingPage";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
 	title: "Yomify",
@@ -32,6 +33,7 @@ const MainPage = () => {
 	return (
 		<div className="relative flex flex-col items-center w-full">
 			<LandingPage />
+			<GoogleAnalytics gaId="G-NW36Y5FXGB" />
 		</div>
 	);
 };
