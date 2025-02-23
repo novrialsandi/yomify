@@ -14,7 +14,7 @@ export const metadata = {
 			"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
 		images: [
 			{
-				url: "/demo/bg.png",
+				url: "/meta.png",
 				width: 1200,
 				height: 630,
 			},
@@ -25,7 +25,7 @@ export const metadata = {
 		title: "Yomify",
 		description:
 			"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
-		images: ["/demo/bg.png"],
+		images: ["/meta.png"],
 	},
 };
 
