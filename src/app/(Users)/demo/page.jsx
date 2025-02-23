@@ -4,7 +4,7 @@ export const metadata = {
 	title: "Yomify - Demo",
 	description:
 		"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
-	metadataBase: new URL("https://www.yomify.com/demo"),
+	metadataBase: new URL("https://www.yomify.com"),
 	openGraph: {
 		type: "website",
 		url: "https://www.yomify.com/demo",
