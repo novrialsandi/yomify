@@ -146,7 +146,7 @@ const Content = () => {
 					<table className="w-full border-collapse">
 						<thead>
 							<tr className="border-b border-gray-300">
-								<th className="px-4 py-2 text-center">Color</th>
+								<th className="px-4 py-2 text-center">Object</th>
 								<th className="px-4 py-2 text-center">Description</th>
 							</tr>
 						</thead>
