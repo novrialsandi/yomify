@@ -47,12 +47,7 @@ const LandingPage = () => {
 					Engage your audience with clickable visuals that reveal event details,
 					stories, and more.
 				</p>
-				<Button
-					onClick={() => router.push("/demo")}
-					class="squishy squishy-candy"
-				>
-					Try Demo
-				</Button>
+				
 			</div>
 			<div className="min-h-lvh bg-[#9AC0AF] flex flex-col gap-8 justify-center items-center p-8">
 				<h2 className="text-3xl font-semibold text-center">
@@ -74,6 +69,12 @@ const LandingPage = () => {
 						))}
 					</Carousel>
 				</div>
+				<Button
+					onClick={() => router.push("/demo")}
+					class="squishy squishy-candy"
+				>
+					Try Demo
+				</Button>
 			</div>
 			<div className="bg-[#EEE9D2] w-full flex flex-col justify-center items-center p-4">
 				<h2 className="text-3xl font-semibold text-center ">
