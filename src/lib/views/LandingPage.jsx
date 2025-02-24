@@ -40,7 +40,7 @@ const LandingPage = () => {
 		<>
 			<div className="min-h-svh bg-[#EEE9D2] flex flex-col gap-6 justify-center items-center p-4">
 				<div className="text-center text-7xl font-bold ">Yomify</div>
-				<img src="/meta.png" alt="Meta" className="cursor-pointer size-[80%]" />
+				<img src="/meta.png" alt="Meta" className=" size-[80%]" />
 				<div className="text-center text-4xl font-bold ">
 					Interactive Web Experiences
 				</div>
