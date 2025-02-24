@@ -1,8 +1,9 @@
 "use client";
 
-import { Icon } from "@iconify/react";
 import Modal from "@/lib/components/Modal";
+import { Icon } from "@iconify/react";
 import { useState, useRef, useEffect } from "react";
+import { contents } from "@/lib/content-data/demo";
 
 const Content = () => {
 	const audioRef = useRef(null); // Reference to background music
@@ -20,69 +21,19 @@ const Content = () => {
 		botol: false,
 	});
 
-	const contents = [
-		{
-			name: "music",
-			w: 32.5,
-			x: 37.5,
-			y: 47.36,
-			img: "/demo/base/speaker.png",
-			detail: "Novo Amor - Anchor",
-		},
-		{
-			name: "laptop",
-			w: 30,
-			x: 33.1,
-			y: 43.7,
-			img: "/demo/base/laptop.png",
-			detail: "Wish",
-		},
-		{
-			name: "camera",
-			w: 36,
-			x: 58.8,
-			y: 72.3,
-			img: "/demo/base/camera.png",
-			detail: "Wedding Photo",
-		},
-		{
-			name: "amplop",
-			w: 45,
-			x: 26.8,
-			y: 67.2,
-			img: "/demo/base/amplop.png",
-			detail: "Yo & Mi",
-		},
-		{
-			name: "date",
-			w: 8,
-			x: 65.7,
-			y: 38.2,
-			img: "/demo/base/date.png",
-			detail: "31 Februari 2025",
-		},
-		{
-			name: "globe",
-			w: 21.5,
-			x: 78.5,
-			y: 45.8,
-			img: "/demo/base/globe.png",
-			detail: "Ndalem Hanoman",
-		},
-		{
-			name: "botol",
-			w: 33.4,
-			x: 65.5,
-			y: 64.2,
-			img: "/demo/base/botol.png",
-			detail: "Wedding Invitation",
-		},
-	];
-
 	const playClickSound = () => {
 		if (clickSoundRef.current) {
-			clickSoundRef.current.currentTime = 0; // Reset sound to start
-			clickSoundRef.current.play();
+			// Create a new Audio instance for each click
+			const sound = new Audio("/audio/demo/menu-select.mp3");
+			sound.volume = 0.5;
+			sound.play().catch((error) => {
+				console.log("Error playing sound:", error);
+				// Fallback to the ref-based audio if the new instance fails
+				if (clickSoundRef.current) {
+					clickSoundRef.current.currentTime = 0;
+					clickSoundRef.current.play();
+				}
+			});
 		}
 	};
 
@@ -118,9 +69,6 @@ const Content = () => {
 	useEffect(() => {
 		if (audioRef.current) {
 			audioRef.current.volume = 0.3;
-		}
-		if (clickSoundRef.current) {
-			clickSoundRef.current.volume = 0.5; // Set click sound volume
 		}
 	}, []);
 
@@ -248,7 +196,7 @@ const Content = () => {
 						<img
 							src={item.img}
 							alt={item.detail}
-							className="transition-all duration-200 hover:drop-shadow-[0_4px_4px_rgba(255,255,0,0.9)] hover:cursor-pointer"
+							className="transition-all duration-200 hover:drop-shadow-[0px_0px_12px_rgba(255,255,0,1)] hover:cursor-pointer"
 						/>
 
 						{musicActive && item.name === "music" && (

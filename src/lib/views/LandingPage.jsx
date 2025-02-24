@@ -4,6 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import Carousel from "../components/Carausel";
 import Button from "../components/Button";
+import { SiWhatsapp, SiGmail } from "react-icons/si";
 
 const LandingPage = () => {
 	const router = useRouter();
@@ -47,7 +48,6 @@ const LandingPage = () => {
 					Engage your audience with clickable visuals that reveal event details,
 					stories, and more.
 				</p>
-				
 			</div>
 			<div className="min-h-lvh bg-[#9AC0AF] flex flex-col gap-8 justify-center items-center p-8">
 				<h2 className="text-3xl font-semibold text-center">
@@ -76,27 +76,38 @@ const LandingPage = () => {
 					Try Demo
 				</Button>
 			</div>
-			<div className="bg-[#EEE9D2] w-full flex flex-col justify-center items-center p-4">
-				<h2 className="text-3xl font-semibold text-center ">
+			<div className="bg-[#F5D79B] w-full flex flex-col justify-center items-center py-8 px-4 space-y-6">
+				<h2 className="text-3xl font-bold text-center text-gray-800">
 					Ready to Make Your Story Interactive?
 				</h2>
-				<p className="text mb-6 text-center">
+				<p className="text-lg text-center text-gray-700 max-w-xl">
 					Let us bring your vision to life with immersive web experiences.
 				</p>
 				<div className="text-center space-y-2">
-					<p className="text-lg">
-						📧 Email:{" "}
-						<a href="mailto:novrialsandi@gmail.com" className="hover:underline">
+					<p className="text-lg text-gray-800 flex justify-center items-center gap-2">
+						<SiGmail className="text-red-500 " />
+						<a
+							href="mailto:novrialsandi@gmail.com"
+							className=" hover:underline"
+						>
 							novrialsandi@gmail.com
 						</a>
 					</p>
-					<p className="text-lg">
-						📞 Phone:{" "}
-						<a href="tel:+6285183192969" className="hover:underline">
+					<p className="text-lg text-gray-800 flex justify-center items-center gap-2">
+						<SiWhatsapp className="text-green-500 " />
+						<a
+							href="https://wa.me/6285183192969"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="hover:underline"
+						>
 							+62 851-8319-2969
 						</a>
 					</p>
 				</div>
+				<p className="text-sm text-gray-600 text-center">
+					Copyright © {new Date().getFullYear()} Yomify. All rights reserved.
+				</p>
 			</div>
 		</>
 	);
