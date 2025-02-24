@@ -24,7 +24,7 @@ const Content = () => {
 	const playClickSound = () => {
 		if (clickSoundRef.current) {
 			// Create a new Audio instance for each click
-			const sound = new Audio("/audio/demo/menu-select.mp3");
+			const sound = new Audio("/audio/demo/menu-select.wav");
 			sound.volume = 0.5;
 			sound.play().catch((error) => {
 				console.log("Error playing sound:", error);
@@ -38,7 +38,7 @@ const Content = () => {
 	};
 
 	const handleClick = (name) => {
-		playClickSound(); // Play click sound for all content interactions
+		// playClickSound(); // Play click sound for all content interactions
 
 		if (name === "music") {
 			toggleMusic();
@@ -81,11 +81,7 @@ const Content = () => {
 				loop
 				preload="auto"
 			/>
-			<audio
-				ref={clickSoundRef}
-				src="/audio/demo/menu-select.mp3"
-				preload="auto"
-			/>
+			<audio ref={clickSoundRef} preload="auto" />
 
 			{/* Modal List */}
 			<Modal visible={modalList} preventClose position="center">
@@ -192,6 +188,9 @@ const Content = () => {
 							width: `${item.w}%`,
 						}}
 						onClick={() => handleClick(item.name)}
+						onPointerUp={() => {
+							playClickSound();
+						}}
 					>
 						<img
 							src={item.img}
