@@ -7,7 +7,6 @@ import { contents } from "@/lib/content-data/demo";
 
 const Content = () => {
 	const audioRef = useRef(null); // Reference to background music
-	const clickSoundRef = useRef(null); // Reference to click sound
 	const [musicActive, setMusicActive] = useState(false);
 	const [modalList, setModalList] = useState(false);
 	const [openedContent, setOpenedContent] = useState({});
@@ -22,24 +21,16 @@ const Content = () => {
 	});
 
 	const playClickSound = () => {
-		if (clickSoundRef.current) {
-			// Create a new Audio instance for each click
-			const sound = new Audio("/audio/demo/menu-select.wav");
-			sound.volume = 0.5;
-			sound.play().catch((error) => {
-				console.log("Error playing sound:", error);
-				// Fallback to the ref-based audio if the new instance fails
-				if (clickSoundRef.current) {
-					clickSoundRef.current.currentTime = 0;
-					clickSoundRef.current.play();
-				}
-			});
-		}
+		// Create a new Audio instance for each click
+		const sound = new Audio("/audio/demo/menu-select.wav");
+		sound.volume = 0.5;
+		sound.play().catch((error) => {
+			console.log("Error playing sound:", error);
+			// Fallback to the ref-based audio if the new instance fails
+		});
 	};
 
 	const handleClick = (name) => {
-		// playClickSound(); // Play click sound for all content interactions
-
 		if (name === "music") {
 			toggleMusic();
 		} else {
@@ -81,7 +72,6 @@ const Content = () => {
 				loop
 				preload="auto"
 			/>
-			<audio ref={clickSoundRef} preload="auto" />
 
 			{/* Modal List */}
 			<Modal visible={modalList} preventClose position="center">
