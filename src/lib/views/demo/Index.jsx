@@ -2,6 +2,7 @@
 
 import { Icon } from "@iconify/react";
 import { useState, useRef, useEffect } from "react";
+import { getCookie } from "@/lib/helpers/cookie";
 import { contents } from "@/lib/content-data/demo";
 import ModalList from "./ModalList";
 import ModalContent from "./ModalContent";
@@ -18,7 +19,7 @@ const Content = () => {
 		amplop: false,
 		date: false,
 		globe: false,
-		bottle: true,
+		bottle: false,
 	});
 
 	const playClickSound = () => {
@@ -74,6 +75,14 @@ const Content = () => {
 			document.removeEventListener("visibilitychange", handleVisibilityChange);
 		};
 	}, [musicActive]);
+
+	useEffect(() => {
+		const boarding = getCookie("boarding");
+		setModalContent((prev) => ({
+			...prev,
+			bottle: boarding ? false : true,
+		}));
+	}, []);
 
 	return (
 		<>
