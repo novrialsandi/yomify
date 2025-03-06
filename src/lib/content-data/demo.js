@@ -1,5 +1,6 @@
 export const contents = [
 	{
+		audio: "",
 		name: "music",
 		w: 32.5,
 		x: 37.5,
@@ -8,6 +9,7 @@ export const contents = [
 		detail: "Novo Amor - Anchor",
 	},
 	{
+		audio: "",
 		name: "laptop",
 		w: 30,
 		x: 33.1,
@@ -16,14 +18,30 @@ export const contents = [
 		detail: "Wish",
 	},
 	{
+		audio: "",
 		name: "camera",
 		w: 36,
 		x: 58.8,
 		y: 72.3,
 		img: "/demo/base/camera.png",
 		detail: "Wedding Photo",
+		contents: [
+			{
+				img: "/demo/base/camera.png",
+				alt: "Wedding Photo",
+			},
+			{
+				img: "/demo/base/laptop.png",
+				alt: "Wedding Photo",
+			},
+			{
+				img: "/demo/base/amplop.png",
+				alt: "Wedding Photo",
+			},
+		],
 	},
 	{
+		audio: "",
 		name: "amplop",
 		w: 45,
 		x: 26.8,
@@ -32,14 +50,17 @@ export const contents = [
 		detail: "Yo & Mi",
 	},
 	{
+		audio: "",
 		name: "date",
 		w: 8,
 		x: 65.7,
 		y: 38.2,
 		img: "/demo/base/date.png",
 		detail: "31 Februari 2025",
+		contents: "31 Februari 2025, 09:00 WIB",
 	},
 	{
+		audio: "",
 		name: "globe",
 		w: 21.5,
 		x: 78.5,
@@ -48,11 +69,14 @@ export const contents = [
 		detail: "Ndalem Hanoman",
 	},
 	{
-		name: "botol",
+		audio: "",
+		name: "bottle",
 		w: 33.4,
 		x: 65.5,
 		y: 64.2,
-		img: "/demo/base/botol.png",
+		img: "/demo/base/bottle.png",
 		detail: "Wedding Invitation",
+		contents:
+			"Hello Yomies! \n\nThis is a wedding invitation that provides a unique experience for guests. Instead of simply displaying wedding details directly, this invitation encourages guests to interact with various image objects scattered throughout the invitation page. \n\n✨Each object plays a special role in conveying wedding details and trivia. \n\n🎉Enjoy the experience and see you at the wedding! \n\nBest regards,\nYomify🐾",
 	},
 ];

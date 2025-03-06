@@ -1,4 +1,4 @@
-import Content from "@/lib/views/demo/Content";
+import Content from "@/lib/views/demo/Index";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {

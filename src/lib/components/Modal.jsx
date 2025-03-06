@@ -127,7 +127,7 @@ const Modal = ({
 					<motion.div
 						key="modal-content"
 						ref={modalRef}
-						className={`modal-content z-10 border-[1px] ${className} relative my-8 min-w-[300px] max-w-[1200px] overflow-hidden rounded-lg `}
+						className={`modal-content z-10  ${className} relative my-8 min-w-[300px] max-w-[512px] overflow-hidden rounded-lg `}
 						initial={getInitialPosition()}
 						animate={getAnimatePosition()}
 						exit={getExitPosition()}
@@ -136,7 +136,7 @@ const Modal = ({
 						{!preventClose && (
 							<Icon
 								icon="mingcute:close-fill"
-								className="absolute right-2 top-2 text-white text-2xl cursor-pointer"
+								className="absolute z-50 right-2 top-2 text-white text-2xl cursor-pointer"
 								onClick={handleClose}
 							/>
 						)}

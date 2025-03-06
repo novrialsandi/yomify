@@ -14,7 +14,7 @@ const LandingPage = () => {
 			title: "Wedding Invitations",
 			description:
 				"Create unforgettable digital wedding invitations with interactive storytelling.",
-			img: "/demo/base/botol.png",
+			img: "/demo/base/bottle.png",
 		},
 		{
 			title: "Company Profiles",
