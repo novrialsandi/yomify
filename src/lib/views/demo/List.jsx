@@ -1,19 +1,20 @@
 import Modal from "@/lib/components/Modal";
 
-const ModalList = ({ isVisible, contents, openedContent }) => {
+const ModalList = ({ contents, openedContent }) => {
 	return (
-		<Modal visible={isVisible} preventClose position="center">
-			<div className="flex flex-col items-center justify-center text-white text-center py-4 px-6">
-				<h2 className="text-xl font-semibold mb-4">Content Details</h2>
-				<table className="w-full border-collapse">
-					<thead>
-						<tr className="border-b border-gray-300">
-							<th className="px-4 py-2 text-center">Object</th>
-							<th className="px-4 py-2 text-center">Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						{contents.map((item, i) => (
+		<div className="flex flex-col items-center justify-center text-white text-center py-4 px-6">
+			<h2 className="text-xl font-semibold mb-4">Content Details</h2>
+			<table className="w-full border-collapse">
+				<thead>
+					<tr className="border-b border-gray-300">
+						<th className="px-4 py-2 text-center">Object</th>
+						<th className="px-4 py-2 text-center">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					{contents
+						.filter((item) => !item.trivia)
+						.map((item, i) => (
 							<tr key={i} className="border-b border-gray-300">
 								<td className="px-4 h-10 py-1.5 flex items-center justify-center">
 									{openedContent[item.name] ? (
@@ -41,10 +42,9 @@ const ModalList = ({ isVisible, contents, openedContent }) => {
 								</td>
 							</tr>
 						))}
-					</tbody>
-				</table>
-			</div>
-		</Modal>
+				</tbody>
+			</table>
+		</div>
 	);
 };
 

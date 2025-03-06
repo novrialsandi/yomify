@@ -1,17 +1,13 @@
 "use client";
 
-import { Icon } from "@iconify/react";
 import { useState, useRef, useEffect } from "react";
-import { getCookie } from "@/lib/helpers/cookie";
+import { getCookie, setCookie } from "@/lib/helpers/cookie";
 import { contents } from "@/lib/content-data/demo";
-import ModalList from "./ModalList";
 import ModalContent from "./ModalContent";
 
 const Content = () => {
 	const audioRef = useRef(null);
 	const [musicActive, setMusicActive] = useState(false);
-	const [modalList, setModalList] = useState(false);
-	const [openedContent, setOpenedContent] = useState({});
 	const [modalContent, setModalContent] = useState({
 		music: false,
 		laptop: false,
@@ -21,6 +17,19 @@ const Content = () => {
 		globe: false,
 		bottle: false,
 	});
+
+	// Function to get openedContent from cookies
+	const getOpenedContent = () => {
+		const openedContentCookie = getCookie("openedContent");
+		return openedContentCookie ? openedContentCookie : {};
+	};
+
+	// Function to update openedContent in cookies
+	const updateOpenedContent = (name) => {
+		const currentOpenedContent = getOpenedContent();
+		const updatedOpenedContent = { ...currentOpenedContent, [name]: true };
+		setCookie("openedContent", updatedOpenedContent);
+	};
 
 	const playClickSound = () => {
 		const sound = new Audio("/audio/demo/menu-select.wav");
@@ -44,7 +53,7 @@ const Content = () => {
 		}
 
 		setMusicActive(!musicActive);
-		setOpenedContent((prev) => ({ ...prev, music: true }));
+		updateOpenedContent("music");
 		setModalContent((prev) => ({ ...prev, music: !prev.music }));
 	};
 
@@ -58,7 +67,7 @@ const Content = () => {
 
 	const toggleModal = (name) => {
 		setModalContent((prev) => ({ ...prev, [name]: !prev[name] }));
-		setOpenedContent((prev) => ({ ...prev, [name]: true }));
+		updateOpenedContent(name);
 	};
 
 	useEffect(() => {
@@ -86,19 +95,13 @@ const Content = () => {
 
 	return (
 		<>
-			{/* Modal List */}
-			<ModalList
-				isVisible={modalList}
-				contents={contents}
-				openedContent={openedContent}
-			/>
-
 			{/* Individual Content Modals (excluding music) */}
 			<ModalContent
 				contents={contents}
 				modalContent={modalContent}
 				toggleModal={toggleModal}
 				toggleMusic={toggleMusic}
+				openedContent={getOpenedContent()}
 			/>
 
 			{/* Image Container */}
@@ -108,20 +111,6 @@ const Content = () => {
 					alt=""
 					className="w-full h-auto max-h-svh"
 				/>
-
-				{/* Icons */}
-				<div className="absolute top-6 left-6 flex gap-2 z-10">
-					<Icon
-						icon="hugeicons:note-03"
-						className="text-white text-5xl hover:drop-shadow-[0_0_6px_rgba(255,255,0,0.7)]"
-						onClick={() => {
-							setModalList((prev) => !prev);
-						}}
-						onPointerUp={() => {
-							playClickSound();
-						}}
-					/>
-				</div>
 
 				{/* Content Items */}
 				{contents.map((item, index) => (

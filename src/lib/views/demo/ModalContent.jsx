@@ -1,8 +1,15 @@
 import Modal from "@/lib/components/Modal";
 import Camera from "./Camera";
 import { setCookie, getCookie } from "@/lib/helpers/cookie";
+import List from "./List";
 
-const ModalContent = ({ contents, modalContent, toggleModal, toggleMusic }) => {
+const ModalContent = ({
+	contents,
+	modalContent,
+	toggleModal,
+	toggleMusic,
+	openedContent,
+}) => {
 	const boarding = getCookie("boarding");
 
 	return (
@@ -32,6 +39,8 @@ const ModalContent = ({ contents, modalContent, toggleModal, toggleMusic }) => {
 								</a>
 							) : item.name === "camera" ? (
 								<Camera item={item} />
+							) : item.name === "list" ? (
+								<List openedContent={openedContent} contents={contents} />
 							) : item.name === "bottle" ? (
 								<>
 									<div className=" whitespace-pre-line">
@@ -48,7 +57,13 @@ const ModalContent = ({ contents, modalContent, toggleModal, toggleMusic }) => {
 														toggleMusic();
 													}
 													toggleModal(item.name);
-													// setBoarding(true);
+													// Update the openedContent in cookie for bottle
+													const currentOpenedContent = openedContent || {};
+													const updatedOpenedContent = {
+														...currentOpenedContent,
+														bottle: true,
+													};
+													setCookie("openedContent", updatedOpenedContent);
 													setCookie("boarding", true);
 												}}
 												className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 transition"

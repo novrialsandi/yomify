@@ -1,5 +1,15 @@
 export const contents = [
 	{
+		trivia: true,
+		audio: "",
+		name: "list",
+		w: 12,
+		x: 5,
+		y: 3,
+		img: "/demo/other/list.png",
+	},
+	{
+		trivia: false,
 		audio: "",
 		name: "music",
 		w: 32.5,
@@ -9,6 +19,7 @@ export const contents = [
 		detail: "Novo Amor - Anchor",
 	},
 	{
+		trivia: false,
 		audio: "",
 		name: "laptop",
 		w: 30,
@@ -18,6 +29,7 @@ export const contents = [
 		detail: "Wish",
 	},
 	{
+		trivia: false,
 		audio: "",
 		name: "camera",
 		w: 36,
@@ -41,6 +53,7 @@ export const contents = [
 		],
 	},
 	{
+		trivia: false,
 		audio: "",
 		name: "amplop",
 		w: 45,
@@ -50,6 +63,7 @@ export const contents = [
 		detail: "Yo & Mi",
 	},
 	{
+		trivia: false,
 		audio: "",
 		name: "date",
 		w: 8,
@@ -60,6 +74,7 @@ export const contents = [
 		contents: "31 Februari 2025, 09:00 WIB",
 	},
 	{
+		trivia: false,
 		audio: "",
 		name: "globe",
 		w: 21.5,
@@ -69,6 +84,7 @@ export const contents = [
 		detail: "Ndalem Hanoman",
 	},
 	{
+		trivia: false,
 		audio: "",
 		name: "bottle",
 		w: 33.4,
