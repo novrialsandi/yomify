@@ -77,7 +77,7 @@ const LandingPage = () => {
 				</Button>
 			</div>
 			<div className="bg-[#F5D79B] w-full flex flex-col justify-center items-center py-8 px-4 space-y-6">
-				<h2 className="text-3xl font-bold text-center text-gray-800">
+				<h2 className="text-xl font-bold text-center text-gray-800">
 						Let us bring your vision to life with immersive web experiences.
 				</h2>
 				<div className="text-center space-y-2">
