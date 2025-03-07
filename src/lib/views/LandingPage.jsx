@@ -78,11 +78,8 @@ const LandingPage = () => {
 			</div>
 			<div className="bg-[#F5D79B] w-full flex flex-col justify-center items-center py-8 px-4 space-y-6">
 				<h2 className="text-3xl font-bold text-center text-gray-800">
-					Ready to Make Your Story Interactive?
+						Let us bring your vision to life with immersive web experiences.
 				</h2>
-				<p className="text-lg text-center text-gray-700 max-w-xl">
-					Let us bring your vision to life with immersive web experiences.
-				</p>
 				<div className="text-center space-y-2">
 					<p className="text-lg text-gray-800 flex justify-center items-center gap-2">
 						<SiGmail className="text-red-500 " />
