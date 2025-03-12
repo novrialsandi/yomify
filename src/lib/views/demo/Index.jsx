@@ -6,6 +6,7 @@ import { contents } from "@/lib/content-data/demo";
 import ModalContent from "./ModalContent";
 
 const Content = () => {
+	const [intro, setIntro] = useState(true);
 	const audioRef = useRef(null);
 	const [musicActive, setMusicActive] = useState(false);
 	const [modalContent, setModalContent] = useState({
@@ -14,7 +15,7 @@ const Content = () => {
 		camera: false,
 		amplop: false,
 		date: false,
-		globe: false,
+		map: false,
 		bottle: false,
 	});
 
@@ -86,12 +87,31 @@ const Content = () => {
 	}, [musicActive]);
 
 	useEffect(() => {
-		const boarding = getCookie("boarding");
-		setModalContent((prev) => ({
-			...prev,
-			bottle: boarding ? false : true,
-		}));
-	}, []);
+		const openedContent = getOpenedContent();
+
+		if (!openedContent.bottle && !intro) {
+			setModalContent((prev) => ({ ...prev, bottle: true }));
+		}
+	}, [intro]);
+
+	if (intro) {
+		return (
+			<div className="relative w-full">
+				<img
+					src="/demo/intro.jpeg"
+					alt=""
+					className="w-full h-auto max-h-svh"
+				/>
+				<button
+					className="absolute left-1/2 top-[75%] -translate-x-1/2 w-32 h-20"
+					onClick={() => {
+						setIntro(false);
+						toggleMusic();
+					}}
+				/>
+			</div>
+		);
+	}
 
 	return (
 		<>
@@ -100,7 +120,6 @@ const Content = () => {
 				contents={contents}
 				modalContent={modalContent}
 				toggleModal={toggleModal}
-				toggleMusic={toggleMusic}
 				openedContent={getOpenedContent()}
 			/>
 

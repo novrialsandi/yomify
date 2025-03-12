@@ -25,7 +25,7 @@ const ModalList = ({ contents, openedContent }) => {
 								</td>
 								<td className="px-4 h-10">
 									{openedContent[item.name] ? (
-										item.name === "globe" ? (
+										item.name === "map" ? (
 											<a
 												href="https://www.google.com/maps/place/Ndalem+Hanoman/@-7.7935397,110.3693196,17z/data=!3m1!4b1!4m6!3m5!1s0x2e7a59f1b125f11b:0xc4edf781ca003a86!8m2!3d-7.7935397!4d110.3718945!16s%2Fg%2F11vjpvrj_9?entry=ttu&g_ep=EgoyMDI1MDIxOC4wIKXMDSoASAFQAw%3D%3D"
 												target="_blank"
