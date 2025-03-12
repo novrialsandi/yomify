@@ -106,7 +106,7 @@ const Content = () => {
 					className="absolute left-1/2 top-[75%] -translate-x-1/2 w-32 h-20"
 					onClick={() => {
 						setIntro(false);
-						toggleMusic();
+						// toggleMusic();
 					}}
 				/>
 			</div>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function Carousel({ children: slides }) {
+export default function Carousel({ children: slides, hideArrow }) {
 	const [curr, setCurr] = useState(1); // Start from the first real slide (after the cloned last slide)
 	const [isTransitioning, setIsTransitioning] = useState(false);
 	const trackRef = useRef(null);
@@ -64,47 +64,71 @@ export default function Carousel({ children: slides }) {
 				))}
 			</div>
 
-			<div className="absolute -inset-4 z-10 flex items-center justify-between">
-				<button
-					onClick={prev}
-					className="p-1 rounded-full shadow bg-gray-400/60 text-gray-800"
-					aria-label="Previous slide"
-				>
-					<svg
-						className="w-6 h-6"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
+			{!hideArrow ? (
+				<div className="absolute -inset-4 z-[40] flex items-center justify-between">
+					<button
+						onClick={prev}
+						className="p-1 rounded-full shadow bg-gray-400/60 text-gray-800"
+						aria-label="Previous slide"
 					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth={2}
-							d="M15 19l-7-7 7-7"
-						/>
-					</svg>
-				</button>
+						<svg
+							className="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth={2}
+								d="M15 19l-7-7 7-7"
+							/>
+						</svg>
+					</button>
 
-				<button
-					onClick={next}
-					className="p-1 rounded-full shadow bg-gray-400/60 text-gray-800"
-					aria-label="Next slide"
-				>
-					<svg
-						className="w-6 h-6"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
+					<button
+						onClick={next}
+						className="p-1 rounded-full shadow bg-gray-400/60 text-gray-800"
+						aria-label="Next slide"
 					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth={2}
-							d="M9 5l7 7-7 7"
-						/>
-					</svg>
-				</button>
-			</div>
+						<svg
+							className="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth={2}
+								d="M9 5l7 7-7 7"
+							/>
+						</svg>
+					</button>
+				</div>
+			) : (
+				<>
+					<div className="absolute inset-0 z-[40]  flex items-start justify-between w-full px-2">
+						<div>
+							00{curr}/00{slides.length}
+						</div>
+						<div>-449{curr}</div>
+					</div>
+					<div className="absolute inset-2 z-[40] flex items-center justify-between">
+						<button
+							onClick={prev}
+							className="p-1 size-8 rounded-full "
+							aria-label="Previous slide"
+						></button>
+
+						<button
+							onClick={next}
+							className="p-1 size-8 rounded-full "
+							aria-label="Next slide"
+						></button>
+					</div>
+				</>
+			)}
 		</div>
 	);
 }

@@ -11,6 +11,7 @@ const Modal = ({
 	visible,
 	onClose = () => {},
 	preventClose = false,
+	padding = "p-4",
 }) => {
 	const modalRef = useRef(null);
 
@@ -118,7 +119,7 @@ const Modal = ({
 			{visible && (
 				<motion.div
 					key="modal-overlay"
-					className={`fixed inset-0 z-[10] flex min-h-screen bg-black/80 p-4 ${getModalPosition()}`}
+					className={`fixed  inset-0 z-[50] flex min-h-svh bg-black/80 ${padding} ${getModalPosition()}`}
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}

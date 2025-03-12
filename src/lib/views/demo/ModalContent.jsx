@@ -4,6 +4,7 @@ import List from "./List";
 import Bottle from "./Bottle";
 import Outfit from "./Outfit";
 import Map from "./Map";
+import Date from "./Date";
 
 const ModalContent = ({
 	contents,
@@ -29,6 +30,15 @@ const ModalContent = ({
 					} else if (item.name === "camera") {
 						return (
 							<Camera
+								key={item.name}
+								item={item}
+								visible={modalContent[item.name]}
+								onClose={() => toggleModal(item.name)}
+							/>
+						);
+					} else if (item.name === "date") {
+						return (
+							<Date
 								key={item.name}
 								item={item}
 								visible={modalContent[item.name]}
