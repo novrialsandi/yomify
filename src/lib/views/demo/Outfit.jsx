@@ -1,15 +1,13 @@
 import Modal from "@/lib/components/Modal";
 
-const Bottle = ({ item, visible, onClose }) => {
+const Outfit = ({ item, visible, onClose }) => {
 	return (
 		<Modal position="center" visible={visible} onClose={onClose}>
 			<div className="text-white flex flex-col justify-center items-center p-6">
-				<div className=" whitespace-pre-line">
-					{item.contents ? item.contents : item.detail}
-				</div>
+				<div>Outfit</div>
 			</div>
 		</Modal>
 	);
 };
 
-export default Bottle;
+export default Outfit;
