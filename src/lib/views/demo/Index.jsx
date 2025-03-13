@@ -102,7 +102,7 @@ const Content = () => {
 					popover: {
 						title: "See You There! 🥂",
 						description:
-							"Hope you have fun exploring! We can't wait to celebrate with you! 🎊<br><br>With love,<br>Yomify🐾",
+							"Hope you have fun exploring! We can't wait to celebrate with you! 🎊<br><br>Best regards,<br>Yomify🐾",
 					},
 				},
 			],
