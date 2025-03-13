@@ -25,7 +25,7 @@ export const contents = [
 		x: 53.6,
 		y: 50.8,
 		img: "/demo/base/speaker.png",
-		detail: "Novo Amor - Anchor",
+		detail: "Novo Amor - Emigrate",
 	},
 	{
 		trivia: false,
