@@ -13,7 +13,14 @@ const Camera = ({ item, visible, onClose }) => {
 			<div className="text-white relative flex flex-col justify-center items-center">
 				<div className="relative w-screen aspect-19/12 max-w-[calc(544px-48px)]">
 					<button
-						className="absolute z-50 left-3 top-8 size-6"
+						className="absolute z-50"
+						style={{
+							top: `18%`,
+							left: `6%`,
+							width: `7%`,
+							height: "10%",
+							transform: "translate(-50%, -50%)",
+						}}
 						onClick={() => onClose()}
 					/>
 					<img

@@ -5,7 +5,14 @@ const Date = ({ item, visible, onClose }) => {
 		<Modal position="center" visible={visible} onClose={onClose} preventClose>
 			<div className="relative w-full">
 				<button
-					className="absolute top-4 left-6 size-12 "
+					className="absolute "
+					style={{
+						top: `4%`,
+						left: `8%`,
+						width: `8%`,
+						height: "5%",
+						transform: "translate(-50%, -50%)",
+					}}
 					onClick={() => onClose()}
 				/>
 				<img

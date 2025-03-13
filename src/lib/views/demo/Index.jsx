@@ -5,8 +5,12 @@ import { getCookie, setCookie } from "@/lib/helpers/cookie";
 import { contents } from "@/lib/content-data/demo";
 import ModalContent from "./ModalContent";
 import DisableRightClick from "@/lib/components/DisableRightClick";
+import { driver } from "driver.js";
 
 const Content = () => {
+	const randomId = Date.now().toString();
+	const randomNumber = Math.floor(Math.random() * 90000) + 10000; // Generate 5-digit random number
+
 	const [intro, setIntro] = useState(true);
 	const audioRef = useRef(null);
 	const [musicActive, setMusicActive] = useState(false);
@@ -59,9 +63,58 @@ const Content = () => {
 		setModalContent((prev) => ({ ...prev, music: !prev.music }));
 	};
 
+	const runDriverTour = () => {
+		const driverObj = driver({
+			disableActiveInteraction: true,
+			allowClose: false,
+			popoverClass: "driverjs-theme",
+			showProgress: true,
+			stagePadding: 0,
+			steps: [
+				{
+					popover: {
+						title: "Hello Yomies! ",
+						description:
+							"This is a wedding invitation that provides a unique experience for guests. This invitation encourages guests to interact with various image objects scattered throughout the invitation page. <br><br>Each object plays a special role in conveying wedding details and trivia✨",
+					},
+				},
+				{
+					element: `[data-item="list"]`,
+					popover: {
+						title: "Wedding Details",
+						description:
+							"Check the full wedding details, including the bride and groom's information, schedule, and etc.",
+						side: "bottom",
+						align: "center",
+					},
+				},
+				{
+					element: `[data-item="map"]`,
+					popover: {
+						title: "Some Spoiler",
+						description:
+							"Click here to see the venue location and get directions to the wedding ceremony.",
+						side: "top",
+						align: "center",
+					},
+				},
+				{
+					popover: {
+						title: "Final Greetings",
+						description:
+							"Enjoy the experience and see you at the wedding!🎉 <br><br>Best regards,<br>Yomify🐾",
+					},
+				},
+			],
+		});
+		driverObj.drive();
+	};
+
 	const handleClick = (name) => {
 		if (name === "music") {
 			toggleMusic();
+		} else if (name === "hint") {
+			runDriverTour();
 		} else {
 			toggleModal(name);
 		}
@@ -87,14 +140,6 @@ const Content = () => {
 		};
 	}, [musicActive]);
 
-	useEffect(() => {
-		const openedContent = getOpenedContent();
-
-		if (!openedContent.bottle && !intro) {
-			setModalContent((prev) => ({ ...prev, bottle: true }));
-		}
-	}, [intro]);
-
 	if (intro) {
 		return (
 			<div className="relative w-full">
@@ -107,7 +152,15 @@ const Content = () => {
 					className="absolute left-1/2 top-[75%] -translate-x-1/2 w-32 h-20"
 					onClick={() => {
 						setIntro(false);
-						// toggleMusic();
+						toggleMusic();
+						if (!getCookie("session")) {
+							setCookie("session", {
+								user_id: randomId,
+								name: `demo_${randomNumber}`,
+							});
+							runDriverTour();
+							updateOpenedContent("bottle");
+						}
 					}}
 				/>
 			</div>
@@ -117,7 +170,6 @@ const Content = () => {
 	return (
 		<>
 			<DisableRightClick>
-				{/* Individual Content Modals (excluding music) */}
 				<ModalContent
 					contents={contents}
 					modalContent={modalContent}
@@ -149,6 +201,7 @@ const Content = () => {
 							onPointerUp={() => {
 								playClickSound();
 							}}
+							data-item={item.name}
 						>
 							<img
 								src={item.img}
@@ -157,13 +210,13 @@ const Content = () => {
 							/>
 
 							{musicActive && item.name === "music" && (
-								<div className="absolute w-full h-full">
+								<>
 									<img
 										src="/demo/active/speaker.gif"
 										alt=""
 										className="absolute"
 										style={{
-											top: `${item.y - 220}%`,
+											top: `${item.y - 100}%`,
 											left: `${item.x + 35}%`,
 											width: `${item.w}%`,
 											transform: "translate(-50%, -50%)",
@@ -174,12 +227,12 @@ const Content = () => {
 										alt=""
 										className="absolute"
 										style={{
-											top: `${item.y - 240}%`,
-											left: `${item.x - 45}%`,
+											top: `${item.y - 160}%`,
+											left: `${item.x - 60}%`,
 											width: `${item.w}%`,
 										}}
 									/>
-								</div>
+								</>
 							)}
 						</div>
 					))}

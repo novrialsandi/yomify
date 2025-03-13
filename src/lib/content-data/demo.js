@@ -9,7 +9,16 @@ export const contents = [
 		img: "/demo/base/list.png",
 	},
 	{
-		trivia: false,
+		trivia: true,
+		audio: "",
+		name: "hint",
+		w: 12,
+		x: 26,
+		y: 7,
+		img: "/demo/base/hint.png",
+	},
+	{
+		trivia: true,
 		audio: "",
 		name: "music",
 		w: 32.5,
@@ -52,16 +61,7 @@ export const contents = [
 			},
 		],
 	},
-	{
-		trivia: false,
-		audio: "",
-		name: "amplop",
-		w: 45,
-		x: 50,
-		y: 71.8,
-		img: "/demo/base/amplop.png",
-		detail: "Yo & Mi",
-	},
+
 	{
 		trivia: false,
 		audio: "",
@@ -95,6 +95,7 @@ export const contents = [
 		contents:
 			"Hello Yomies! \n\nThis is a wedding invitation that provides a unique experience for guests. Instead of simply displaying wedding details directly, this invitation encourages guests to interact with various image objects scattered throughout the invitation page. \n\n✨Each object plays a special role in conveying wedding details and trivia. \n\n🎉Enjoy the experience and see you at the wedding! \n\nBest regards,\nYomify🐾",
 	},
+
 	{
 		trivia: true,
 		audio: "",
@@ -103,8 +104,15 @@ export const contents = [
 		x: 35.2,
 		y: 87.4,
 		img: "/demo/base/outfit.png",
-		detail: "Wedding Invitation",
-		contents:
-			"Hello Yomies! \n\nThis is a wedding invitation that provides a unique experience for guests. Instead of simply displaying wedding details directly, this invitation encourages guests to interact with various image objects scattered throughout the invitation page. \n\n✨Each object plays a special role in conveying wedding details and trivia. \n\n🎉Enjoy the experience and see you at the wedding! \n\nBest regards,\nYomify🐾",
+	},
+	{
+		trivia: false,
+		audio: "",
+		name: "amplop",
+		w: 45,
+		x: 50,
+		y: 71.8,
+		img: "/demo/base/amplop.png",
+		detail: "Romeo & Juliet",
 	},
 ];

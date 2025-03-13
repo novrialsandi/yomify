@@ -72,7 +72,14 @@ const Outfit = ({ item, visible, onClose }) => {
 					</div>
 				</div> */}
 				<button
-					className="absolute top-4 left-6 size-12 "
+					className="absolute "
+					style={{
+						top: `5%`,
+						left: `10%`,
+						width: `8%`,
+						height: "4%",
+						transform: "translate(-50%, -50%)",
+					}}
 					onClick={() => onClose()}
 				/>
 				<img
