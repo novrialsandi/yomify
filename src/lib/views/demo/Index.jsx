@@ -66,24 +66,24 @@ const Content = () => {
 	const runDriverTour = () => {
 		const driverObj = driver({
 			disableActiveInteraction: true,
-			allowClose: false,
+			allowClose: !getCookie("session") ? false : true,
 			popoverClass: "driverjs-theme",
 			showProgress: true,
 			stagePadding: 0,
 			steps: [
 				{
 					popover: {
-						title: "Hello Yomies! ",
+						title: "Hey Yomies! 👋",
 						description:
-							"This is a wedding invitation that provides a unique experience for guests. This invitation encourages guests to interact with various image objects scattered throughout the invitation page. <br><br>Each object plays a special role in conveying wedding details and trivia✨",
+							"This is an interactive experience where you can explore different objects on the page—each one revealing unique wedding details and fun trivia! ✨",
 					},
 				},
 				{
 					element: `[data-item="list"]`,
 					popover: {
-						title: "Wedding Details",
+						title: "All the Wedding Details 💍",
 						description:
-							"Check the full wedding details, including the bride and groom's information, schedule, and etc.",
+							"Tap here to see everything you've discovered about the big day—meet the lovely couple, check the schedule, and more!",
 						side: "bottom",
 						align: "center",
 					},
@@ -91,18 +91,18 @@ const Content = () => {
 				{
 					element: `[data-item="map"]`,
 					popover: {
-						title: "Some Spoiler",
+						title: "Spoiler 🎈",
 						description:
-							"Click here to see the venue location and get directions to the wedding ceremony.",
+							"Click here to find the venue and get directions so you won't miss a moment of the celebration!",
 						side: "top",
 						align: "center",
 					},
 				},
 				{
 					popover: {
-						title: "Final Greetings",
+						title: "See You There! 🥂",
 						description:
-							"Enjoy the experience and see you at the wedding!🎉 <br><br>Best regards,<br>Yomify🐾",
+							"Hope you have fun exploring! We can't wait to celebrate with you! 🎊<br><br>With love,<br>Yomify🐾",
 					},
 				},
 			],
