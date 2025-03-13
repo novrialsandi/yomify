@@ -7,6 +7,11 @@ const Bottle = ({ item, visible, onClose }) => {
 				<div className=" whitespace-pre-line">
 					{item.contents ? item.contents : item.detail}
 				</div>
+				{/* <img
+					src="/demo/active/Botol.png"
+					alt=""
+					className="w-full h-auto max-h-svh"
+				/> */}
 			</div>
 		</Modal>
 	);

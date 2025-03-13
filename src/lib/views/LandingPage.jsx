@@ -20,7 +20,7 @@ const LandingPage = () => {
 			title: "Company Profiles",
 			description:
 				"Showcase your brand with a unique, interactive presentation of your company.",
-			img: "/demo/other/paper.png",
+			img: "/demo/base/paper.png",
 		},
 		{
 			title: "Life Documentation",
@@ -32,7 +32,7 @@ const LandingPage = () => {
 			title: "To Pay Illustrator",
 			description:
 				"The illustrations for this product are paid as we do not use AI-generated images.",
-			img: "/demo/other/pictures.png",
+			img: "/demo/base/pictures.png",
 		},
 	];
 
@@ -78,7 +78,7 @@ const LandingPage = () => {
 			</div>
 			<div className="bg-[#F5D79B] w-full flex flex-col justify-center items-center py-8 px-4 space-y-6">
 				<h2 className="text-xl font-bold text-center text-gray-800">
-						Let us bring your vision to life with immersive web experiences.
+					Let us bring your vision to life with immersive web experiences.
 				</h2>
 				<div className="text-center space-y-2">
 					<p className="text-lg text-gray-800 flex justify-center items-center gap-2">

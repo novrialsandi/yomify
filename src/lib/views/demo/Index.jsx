@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { getCookie, setCookie } from "@/lib/helpers/cookie";
 import { contents } from "@/lib/content-data/demo";
 import ModalContent from "./ModalContent";
+import DisableRightClick from "@/lib/components/DisableRightClick";
 
 const Content = () => {
 	const [intro, setIntro] = useState(true);
@@ -115,70 +116,75 @@ const Content = () => {
 
 	return (
 		<>
-			{/* Individual Content Modals (excluding music) */}
-			<ModalContent
-				contents={contents}
-				modalContent={modalContent}
-				toggleModal={toggleModal}
-				openedContent={getOpenedContent()}
-			/>
-
-			{/* Image Container */}
-			<div className="relative w-full">
-				<img
-					src="/demo/cleanBG.png"
-					alt=""
-					className="w-full h-auto max-h-svh"
+			<DisableRightClick>
+				{/* Individual Content Modals (excluding music) */}
+				<ModalContent
+					contents={contents}
+					modalContent={modalContent}
+					toggleModal={toggleModal}
+					openedContent={getOpenedContent()}
 				/>
 
-				{/* Content Items */}
-				{contents.map((item, index) => (
-					<div
-						key={index}
-						className="absolute h-auto"
-						style={{
-							top: `${item.y}%`,
-							left: `${item.x}%`,
-							width: `${item.w}%`,
-						}}
-						onClick={() => handleClick(item.name)}
-						onPointerUp={() => {
-							playClickSound();
-						}}
-					>
-						<img
-							src={item.img}
-							alt={item.detail}
-							className="transition-all duration-200 hover:drop-shadow-[0px_0px_12px_rgba(255,255,0,1)] hover:cursor-pointer"
-						/>
+				{/* Image Container */}
+				<div className="relative w-full">
+					<img
+						src="/demo/cleanBG.png"
+						alt=""
+						className="w-full h-auto max-h-svh"
+					/>
+					{/* <img src="/demo/bg.png" alt="" className="w-full h-auto max-h-svh" /> */}
 
-						{musicActive && item.name === "music" && (
-							<div className="absolute w-full h-full">
-								<img
-									src="/demo/active/speaker.gif"
-									alt=""
-									className="absolute"
-									style={{
-										top: `${item.y - 220}%`,
-										left: `${item.x + 35}%`,
-										width: `${item.w}%`,
-									}}
-								/>
-								<img
-									src="/demo/active/speaker.gif"
-									alt=""
-									className="absolute"
-									style={{
-										top: `${item.y - 240}%`,
-										left: `${item.x - 45}%`,
-										width: `${item.w}%`,
-									}}
-								/>
-							</div>
-						)}
-					</div>
-				))}
-			</div>
+					{/* Content Items */}
+					{contents.map((item, index) => (
+						<div
+							key={index}
+							className="absolute h-auto"
+							style={{
+								top: `${item.y}%`,
+								left: `${item.x}%`,
+								width: `${item.w}%`,
+								transform: "translate(-50%, -50%)",
+							}}
+							onClick={() => handleClick(item.name)}
+							onPointerUp={() => {
+								playClickSound();
+							}}
+						>
+							<img
+								src={item.img}
+								alt={item.detail}
+								className="transition-all duration-200 hover:drop-shadow-[0px_0px_8px_rgba(255,255,0,30)] hover:cursor-pointer"
+							/>
+
+							{musicActive && item.name === "music" && (
+								<div className="absolute w-full h-full">
+									<img
+										src="/demo/active/speaker.gif"
+										alt=""
+										className="absolute"
+										style={{
+											top: `${item.y - 220}%`,
+											left: `${item.x + 35}%`,
+											width: `${item.w}%`,
+											transform: "translate(-50%, -50%)",
+										}}
+									/>
+									<img
+										src="/demo/active/speaker.gif"
+										alt=""
+										className="absolute"
+										style={{
+											top: `${item.y - 240}%`,
+											left: `${item.x - 45}%`,
+											width: `${item.w}%`,
+										}}
+									/>
+								</div>
+							)}
+						</div>
+					))}
+				</div>
+			</DisableRightClick>
 		</>
 	);
 };
