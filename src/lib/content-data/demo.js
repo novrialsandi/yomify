@@ -20,6 +20,16 @@ export const contents = [
 	{
 		trivia: true,
 		audio: "",
+		name: "pictures",
+		w: 60.5,
+		x: 63.4,
+		y: 22,
+		img: "/demo/base/pictures.png",
+		detail: "@najmialfata",
+	},
+	{
+		trivia: true,
+		audio: "",
 		name: "music",
 		w: 32.5,
 		x: 53.6,

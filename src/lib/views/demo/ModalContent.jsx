@@ -82,6 +82,22 @@ const ModalContent = ({
 								onClose={() => toggleModal(item.name)}
 							/>
 						);
+					} else if (item.name === "pictures") {
+						return (
+							<Modal
+								key={item.name}
+								visible={modalContent[item.name]}
+								position="center"
+								onClose={() => toggleModal(item.name)}
+							>
+								<div className="text-white flex flex-col justify-center items-center p-6">
+									<img src={item.img} alt="" className="h-auto" />
+									<div className="whitespace-pre-line w-full">
+										{item.contents ? item.contents : item.detail}
+									</div>
+								</div>
+							</Modal>
+						);
 					} else {
 						return (
 							<Modal
@@ -91,7 +107,8 @@ const ModalContent = ({
 								onClose={() => toggleModal(item.name)}
 							>
 								<div className="text-white flex flex-col justify-center items-center p-6">
-									<div className="whitespace-pre-line">
+									<img src={item.img} alt="" className="w-40 h-auto" />
+									<div className="whitespace-pre-line ">
 										{item.contents ? item.contents : item.detail}
 									</div>
 								</div>
