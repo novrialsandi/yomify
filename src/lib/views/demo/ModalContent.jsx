@@ -93,7 +93,13 @@ const ModalContent = ({
 								<div className="text-white flex flex-col justify-center items-center p-6">
 									<img src={item.img} alt="" className="h-auto" />
 									<div className="whitespace-pre-line w-full">
-										{item.contents ? item.contents : item.detail}
+										<a
+											href="https://www.instagram.com/najmialfata/"
+											target="_blank"
+											rel="noreferrer"
+										>
+											{item.contents ? item.contents : item.detail}
+										</a>
 									</div>
 								</div>
 							</Modal>

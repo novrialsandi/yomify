@@ -1,6 +1,6 @@
 import Modal from "@/lib/components/Modal";
 
-const Bottle = ({ item, visible, onClose }) => {
+const Bottle = ({ visible, onClose }) => {
 	return (
 		<Modal position="center" visible={visible} onClose={onClose} preventClose>
 			<div className="relative w-full h-full flex flex-col items-center justify-center">

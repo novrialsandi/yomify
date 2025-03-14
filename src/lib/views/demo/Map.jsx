@@ -1,6 +1,6 @@
 import Modal from "@/lib/components/Modal";
 
-const Date = ({ item, visible, onClose }) => {
+const Date = ({ visible, onClose }) => {
 	return (
 		<Modal position="center" visible={visible} onClose={onClose}>
 			<div className="relative w-full">
@@ -22,8 +22,8 @@ const Date = ({ item, visible, onClose }) => {
 					style={{
 						top: `51%`,
 						left: `50%`,
-						width: `22%`,
-						height: "23%",
+						width: `28%`,
+						height: "30%",
 						transform: "translate(-50%, -50%)",
 					}}
 				></a>

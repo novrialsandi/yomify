@@ -1,6 +1,6 @@
 import Modal from "@/lib/components/Modal";
 
-const Date = ({ item, visible, onClose }) => {
+const Date = ({ visible, onClose }) => {
 	return (
 		<Modal position="center" visible={visible} onClose={onClose} preventClose>
 			<div className="relative w-full">

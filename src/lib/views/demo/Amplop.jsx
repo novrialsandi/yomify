@@ -1,6 +1,6 @@
 import Modal from "@/lib/components/Modal";
 
-const Amplop = ({ item, visible, onClose }) => {
+const Amplop = ({ visible, onClose }) => {
 	return (
 		<Modal position="center" visible={visible} onClose={onClose}>
 			<div className="relative w-full">
