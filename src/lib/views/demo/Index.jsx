@@ -149,7 +149,14 @@ const Content = () => {
 					className="w-full h-auto max-h-svh"
 				/>
 				<button
-					className="absolute left-1/2 top-[75%] -translate-x-1/2 w-32 h-20"
+					className="absolute left-1/2 top-[75%] "
+					style={{
+						top: `81%`,
+						left: `50%`,
+						width: `38%`,
+						height: "12%",
+						transform: "translate(-50%, -50%)",
+					}}
 					onClick={() => {
 						setIntro(false);
 						toggleMusic();
@@ -182,7 +189,7 @@ const Content = () => {
 					<img
 						src="/demo/cleanBG.png"
 						alt=""
-						className="w-full h-auto max-h-svh"
+						className="w-screen h-auto max-h-svh"
 					/>
 					{/* <img src="/demo/bg.png" alt="" className="w-full h-auto max-h-svh" /> */}
 
