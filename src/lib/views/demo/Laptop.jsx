@@ -17,6 +17,7 @@ const Laptop = ({ visible, onClose }) => {
 		user_id: session.user_id,
 		name: session.name,
 	});
+	const [loadingPost, setLoadingPost] = useState(false);
 
 	const getChatRoom = async () => {
 		try {
@@ -29,16 +30,17 @@ const Laptop = ({ visible, onClose }) => {
 
 	const postMessage = async () => {
 		try {
+			setLoadingPost(true);
 			const req = await fetchApi.post(`/chat-rooms/${slug}`, message);
 
 			setChats(req.data.chat_room.messages);
 			setMessage((prev) => ({ ...prev, message: "" }));
 		} catch (error) {
 			console.error("API Error:", error);
+		} finally {
+			setLoadingPost(false);
 		}
 	};
-
-	console.log(chats);
 
 	useEffect(() => {
 		if (visible) {
@@ -92,7 +94,11 @@ const Laptop = ({ visible, onClose }) => {
 							}))
 						}
 					/>
-					<Button onClick={() => postMessage()} disabled={!message.message}>
+					<Button
+						onClick={() => postMessage()}
+						disabled={!message.message || loadingPost}
+						isLoading={loadingPost}
+					>
 						Kirim
 					</Button>
 				</div>
