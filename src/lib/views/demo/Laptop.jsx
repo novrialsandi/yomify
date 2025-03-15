@@ -64,11 +64,11 @@ const Laptop = ({ visible, onClose }) => {
 		<Modal position="center" visible={visible} onClose={onClose}>
 			<div className="relative w-full text-white p-4">
 				<div
-					className="flex flex-col space-y-2  max-h-[400px] min-h-[400px] py-2 h-full overflow-y-auto"
+					className="flex flex-col space-y-2  max-h-[400px] h-svh py-2  overflow-y-auto"
 					ref={chatContainerRef}
 				>
 					{loadingRoom ? (
-						<div className="w-full flex items-center h-screen justify-center">
+						<div className="w-full flex items-center h-svh justify-center">
 							<div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
 						</div>
 					) : chats.length > 0 ? (
@@ -96,7 +96,7 @@ const Laptop = ({ visible, onClose }) => {
 							);
 						})
 					) : (
-						<p className="text-gray-400 text-center h-screen flex items-center justify-center">
+						<p className="text-gray-400 text-center h-svh flex items-center justify-center">
 							No messages yet.
 						</p>
 					)}
