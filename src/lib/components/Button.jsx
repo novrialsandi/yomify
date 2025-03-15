@@ -16,9 +16,13 @@ const Button = ({
 
 	return (
 		<div
-			className={`${className} text-white bg-[#F66A5B] min-w-24 px-2 text-nowrap flex h-10 items-center justify-center rounded-lg p-2 `}
+			className={`${className} text-white bg-[#F66A5B] text-nowrap flex  items-center justify-center rounded-lg  `}
 		>
-			<button disabled={disabled || isLoading} onClick={handleClick}>
+			<button
+				className="min-w-24 w-full p-2 h-10"
+				disabled={disabled || isLoading}
+				onClick={handleClick}
+			>
 				{children}
 			</button>
 		</div>

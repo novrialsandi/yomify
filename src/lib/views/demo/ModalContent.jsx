@@ -6,6 +6,7 @@ import Outfit from "./Outfit";
 import Map from "./Map";
 import Date from "./Date";
 import Amplop from "./Amplop";
+import Laptop from "./Laptop";
 
 const ModalContent = ({
 	contents,
@@ -49,6 +50,15 @@ const ModalContent = ({
 					} else if (item.name === "date") {
 						return (
 							<Date
+								key={item.name}
+								item={item}
+								visible={modalContent[item.name]}
+								onClose={() => toggleModal(item.name)}
+							/>
+						);
+					} else if (item.name === "laptop") {
+						return (
+							<Laptop
 								key={item.name}
 								item={item}
 								visible={modalContent[item.name]}
