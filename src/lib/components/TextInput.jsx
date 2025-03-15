@@ -97,7 +97,7 @@ const TextInput = ({
 					placeholder={placeholder}
 					type={inputType}
 					pattern={pattern}
-					value={value}
+					value={initialValue}
 					ref={fieldRef}
 					autoComplete="off"
 					onKeyDown={onKeyDown}
@@ -124,7 +124,7 @@ const TextInput = ({
 							!isCheckbox ? "pointer-events-none" : ""
 						}`}
 					>
-						{hasIconLeft}
+						{hasIconRight}
 					</div>
 				)}
 			</div>

@@ -45,3 +45,23 @@
 	.driver-popover-arrow-side-bottom.driver-popover-arrow {
 	border-bottom-color: #fff;
 }
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 50px; /* Makes the scrollbar rounded */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}

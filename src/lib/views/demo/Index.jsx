@@ -140,7 +140,7 @@ const Content = () => {
 		};
 	}, [musicActive]);
 
-	if (!intro) {
+	if (intro) {
 		return (
 			<div className="relative w-full">
 				<img
