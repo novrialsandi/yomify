@@ -5,6 +5,7 @@ export default {
 		extend: {
 			aspectRatio: {
 				"19/12": "19 / 12",
+				"12/18": "12 / 18",
 			},
 		},
 	},

@@ -6,7 +6,14 @@ const Button = ({
 	disabled = false,
 	onClick = () => {},
 	children,
+	size = "medium", // small, medium, large
 }) => {
+	const sizeDataClass = {
+		small: "h-8",
+		medium: "h-10",
+		large: "h-12",
+	};
+
 	const handleClick = (e) => {
 		if (e && typeof e.stopPropagation === "function") {
 			e.stopPropagation();
@@ -17,21 +24,17 @@ const Button = ({
 	};
 
 	return (
-		<div
-			className={`${className} text-white bg-[#F66A5B] text-nowrap flex items-center justify-center rounded-lg`}
+		<button
+			className={`min-w-24 ${className} w-full  ${sizeDataClass[size]}  text-white bg-[#F66A5B] text-nowrap flex items-center justify-center rounded-lg`}
+			disabled={disabled || isLoading}
+			onClick={handleClick}
 		>
-			<button
-				className="min-w-24 w-full p-2 h-10 flex items-center justify-center"
-				disabled={disabled || isLoading}
-				onClick={handleClick}
-			>
-				{isLoading ? (
-					<div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-				) : (
-					children
-				)}
-			</button>
-		</div>
+			{isLoading ? (
+				<div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+			) : (
+				children
+			)}
+		</button>
 	);
 };
 

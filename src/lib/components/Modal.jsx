@@ -119,7 +119,7 @@ const Modal = ({
 			{visible && (
 				<motion.div
 					key="modal-overlay"
-					className={`fixed  inset-0 z-[50] flex min-h-svh bg-black/80 ${padding} ${getModalPosition()}`}
+					className={`fixed  inset-0 z-[50] flex min-h-svh max-h-svh bg-black/80 ${padding} ${getModalPosition()}`}
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}

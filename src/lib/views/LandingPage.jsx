@@ -78,7 +78,12 @@ const LandingPage = () => {
 					transition={{ duration: 0.6, delay: 0.8 }}
 				>
 					<Button>
-						<a href="/demo" target="_blank" rel="noreferrer">
+						<a
+							href="/demo"
+							target="_blank"
+							rel="noreferrer"
+							className="h-full w-full flex items-center justify-center"
+						>
 							Try Demo
 						</a>
 					</Button>
