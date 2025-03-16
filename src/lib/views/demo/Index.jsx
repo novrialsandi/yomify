@@ -213,7 +213,7 @@ const Content = () => {
 							<img
 								src={item.img}
 								alt={item.detail}
-								className="transition-all h-full w-96 duration-200 hover:drop-shadow-[0px_0px_4px_rgba(255,255,0,1)] hover:cursor-pointer"
+								className="transition-all h-full w-96 duration-200 hover:drop-shadow-[0px_0px_4px_rgba(250,249,219,1)] hover:cursor-pointer"
 							/>
 
 							{musicActive && item.name === "music" && (

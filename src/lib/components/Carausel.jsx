@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Icon } from "@iconify/react";
 
 export default function Carousel({ children: slides, hideArrow }) {
 	const [curr, setCurr] = useState(1); // Start from the first real slide (after the cloned last slide)
@@ -26,13 +27,13 @@ export default function Carousel({ children: slides, hideArrow }) {
 	};
 
 	const prev = () => {
-		if (isTransitioning) return;
+		if (isTransitioning || curr === 1) return; // Prevent going before first slide
 		setIsTransitioning(true);
 		setCurr((prev) => prev - 1);
 	};
 
 	const next = () => {
-		if (isTransitioning) return;
+		if (isTransitioning || curr === slides.length) return; // Prevent going past last slide
 		setIsTransitioning(true);
 		setCurr((prev) => prev + 1);
 	};
@@ -108,24 +109,75 @@ export default function Carousel({ children: slides, hideArrow }) {
 				</div>
 			) : (
 				<>
-					<div className="absolute inset-0 z-[40]  flex items-start justify-between w-full px-2">
-						<div>
+					<div className="absolute top-0 text-xl py-1 px-4 bg-black/40 z-[40] flex items-center justify-between w-full ">
+						<div className="flex items-center gap-8">
 							00{curr}/00{slides.length}
+							<div>
+								<Icon
+									icon={"game-icons:battery-75"}
+									className="rotate-90 text-2xl
+                                    "
+								/>
+							</div>
 						</div>
-						<div>-449{curr}</div>
+						<div className="flex">
+							<Icon
+								icon={"tdesign:sim-card-2"}
+								className="text-2xl
+                                    "
+							/>
+							100-449{curr}
+						</div>
 					</div>
-					<div className="absolute inset-2 z-[40] flex items-center justify-between">
+					<div className="absolute inset-0 z-[40] flex items-center justify-between">
 						<button
 							onClick={prev}
-							className="p-1 size-8 rounded-full "
+							className={`p-1 size-12 rounded-full ${
+								curr === 1 ? "opacity-50 cursor-not-allowed" : ""
+							}`}
 							aria-label="Previous slide"
-						></button>
+							disabled={curr === 1}
+						>
+							<Icon
+								icon={"codicon:triangle-left"}
+								className="w-full h-full text-[#CE4F3E] shadow-2xl stroke-1.5 stroke-[#FAF9DB]"
+							/>
+						</button>
 
 						<button
 							onClick={next}
-							className="p-1 size-8 rounded-full "
+							className={`p-1 size-12 rounded-full ${
+								curr === slides.length ? "opacity-50 cursor-not-allowed" : ""
+							}`}
 							aria-label="Next slide"
-						></button>
+							disabled={curr === slides.length}
+						>
+							<Icon
+								icon={"codicon:triangle-right"}
+								className="w-full h-full text-[#CE4F3E] shadow-2xl stroke-1.5 stroke-[#FAF9DB]"
+							/>
+						</button>
+					</div>
+					<div className="absolute bottom-0 text-xl py-1 px-4 bg-black/40 z-[40] flex items-center justify-between w-full ">
+						<div className="flex w-full justify-around items-center gap-8">
+							<div>1/320</div>
+							<div>F8.0</div>
+							<div className="flex items-center">
+								<Icon
+									icon={"ic:baseline-iso"}
+									className=" text-2xl
+                                    "
+								/>
+								<div>-⅓</div>
+							</div>
+							<div className="flex items-center">
+								<Icon icon={"carbon:iso-filled"} className="text-2xl  " />
+								<div>100</div>
+							</div>
+							<div className="flex items-center px-4">
+								<Icon icon={"carbon:raw"} className="text-2xl  " />
+							</div>
+						</div>
 					</div>
 				</>
 			)}

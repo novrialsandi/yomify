@@ -1,5 +1,6 @@
 import Carousel from "@/lib/components/Carausel";
 import Modal from "@/lib/components/Modal";
+import { Icon } from "@iconify/react";
 
 const Camera = ({ item, visible, onClose }) => {
 	return (
@@ -11,23 +12,22 @@ const Camera = ({ item, visible, onClose }) => {
 			onClose={onClose}
 		>
 			<div className="text-white relative flex flex-col justify-center items-center">
-				<div className="relative w-screen aspect-19/12 max-w-[calc(544px-48px)]">
+				<div className="relative w-screen aspect-[19/12] max-w-[calc(544px-48px)]">
 					<button
-						className="absolute z-50"
+						className="absolute z-50 size-10"
 						style={{
-							top: `18%`,
-							left: `6%`,
-							width: `7%`,
-							height: "10%",
+							top: `22%`,
+							left: `7%`,
+
 							transform: "translate(-50%, -50%)",
 						}}
 						onClick={() => onClose()}
-					/>
-					<img
-						src="/demo/active/photo.png"
-						alt=""
-						className="absolute aspect-19/12 z-40"
-					/>
+					>
+						<Icon
+							icon={"entypo:arrow-left"}
+							className="w-full h-full text-[#CE4F3E] shadow-2xl stroke-1.5 stroke-[#FAF9DB]"
+						/>
+					</button>
 
 					<Carousel hideArrow={true}>
 						{item.contents.map((content, i) => (

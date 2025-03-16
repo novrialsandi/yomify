@@ -1,13 +1,25 @@
 import Modal from "@/lib/components/Modal";
+import { Icon } from "@iconify/react";
 
 const Date = ({ visible, onClose }) => {
 	return (
-		<Modal position="center" visible={visible} onClose={onClose}>
+		<Modal position="center" visible={visible} onClose={onClose} preventClose>
 			<div className="relative w-full">
-				{/* <button
-					className="absolute top-4 left-6 size-12 "
+				<button
+					className="absolute z-50 size-10"
+					style={{
+						top: `6%`,
+						left: `8%`,
+
+						transform: "translate(-50%, -50%)",
+					}}
 					onClick={() => onClose()}
-				/> */}
+				>
+					<Icon
+						icon={"entypo:arrow-left"}
+						className="w-full h-full text-[#CE4F3E] shadow-2xl stroke-1.5 stroke-[#FAF9DB]"
+					/>
+				</button>
 				<img
 					src="/demo/active/map.png"
 					alt=""

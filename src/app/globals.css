@@ -6,16 +6,21 @@
 	background-color: transparent;
 	color: #fff;
 	border: 1px solid #fff;
+	font-family: "Single Day", cursive;
 }
 
 .driver-popover.driverjs-theme .driver-popover-title {
-	font-size: 20px;
+	font-size: 24px;
+	font-family: "Single Day", cursive;
 }
 
 .driver-popover.driverjs-theme .driver-popover-title,
 .driver-popover.driverjs-theme .driver-popover-description,
 .driver-popover.driverjs-theme .driver-popover-progress-text {
 	color: #fff;
+	font-size: 16px;
+
+	font-family: "Single Day", cursive;
 }
 
 .driver-popover.driverjs-theme .driver-popover-navigation-btns {
