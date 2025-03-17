@@ -101,13 +101,19 @@ const Laptop = ({ visible, onClose }) => {
 											}`}
 										>
 											<div
-												className={`py-0.5 px-2 max-w-[75%] rounded-lg ${
+												className={`p-2 max-w-[75%] rounded-t-xl ${
 													isMe
-														? "bg-[#E4B893] text-right"
-														: "bg-[#FCF9DA] text-left"
+														? "bg-[#E4B893] rounded-l-xl"
+														: "bg-[#FCF9DA] rounded-r-xl"
 												}`}
 											>
-												<p className="text-sm text-black/60">{chat.name}</p>
+												<p
+													className={`text-black/60 ${
+														isMe ? "text-right" : ""
+													}`}
+												>
+													{chat.name}
+												</p>
 												<p className="text-black/80">{chat.message}</p>
 											</div>
 										</div>
