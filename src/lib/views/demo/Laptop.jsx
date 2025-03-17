@@ -20,6 +20,14 @@ const Laptop = ({ visible, onClose }) => {
 	const [loadingPost, setLoadingPost] = useState(false);
 	const [loadingRoom, setLoadingRoom] = useState(false);
 
+	const getUserColor = (userId) => {
+		const colors = ["#3B82F6", "#F59E0B", "#10B981", "#EF4444", "#8B5CF6"];
+		const hash = userId
+			.split("")
+			.reduce((acc, char) => acc + char.charCodeAt(0), 0);
+		return colors[hash % colors.length];
+	};
+
 	const getChatRoom = async () => {
 		try {
 			setLoadingRoom(true);
@@ -92,6 +100,7 @@ const Laptop = ({ visible, onClose }) => {
 							) : chats.length > 0 ? (
 								chats.map((chat, index) => {
 									const isMe = chat.user_id === session.user_id;
+									const userColor = getUserColor(chat.user_id);
 
 									return (
 										<div
@@ -101,16 +110,15 @@ const Laptop = ({ visible, onClose }) => {
 											}`}
 										>
 											<div
-												className={`p-2 max-w-[75%] rounded-t-xl ${
+												className={`px-2 py-1 max-w-[75%] rounded-t-xl ${
 													isMe
 														? "bg-[#E4B893] rounded-l-xl"
 														: "bg-[#FCF9DA] rounded-r-xl"
 												}`}
 											>
 												<p
-													className={`text-black/60 ${
-														isMe ? "text-right" : ""
-													}`}
+													style={{ color: userColor }}
+													className={`${isMe ? "text-right" : ""}`}
 												>
 													{chat.name}
 												</p>
