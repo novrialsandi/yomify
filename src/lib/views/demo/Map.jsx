@@ -8,20 +8,18 @@ const Date = ({ visible, onClose }) => {
 				<button
 					className="absolute z-50 size-10"
 					style={{
-						top: `6%`,
-						left: `8%`,
-
-						transform: "translate(-50%, -50%)",
+						top: `3%`,
+						left: `4%`,
 					}}
 					onClick={() => onClose()}
 				>
 					<Icon
 						icon={"entypo:arrow-left"}
-						className="w-full h-full text-[#CE4F3E] shadow-2xl stroke-1.5 stroke-[#FAF9DB]"
+						className="w-full h-full text-[#CE4F3E]  stroke-1.5 stroke-[#FAF9DB]"
 					/>
 				</button>
 				<img
-					src="/demo/active/map.png"
+					src="/demo/active/map.webp"
 					alt=""
 					className="w-full h-auto max-h-svh"
 				/>

@@ -187,7 +187,7 @@ const Content = () => {
 				{/* Image Container */}
 				<div className="relative w-full">
 					<img
-						src="/demo/cleanBG.png"
+						src="/demo/cleanBG.webp"
 						alt=""
 						className="w-screen h-auto max-h-svh"
 					/>

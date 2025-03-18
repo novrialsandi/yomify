@@ -12,14 +12,14 @@ const Outfit = ({ visible, onClose }) => {
 
 	return (
 		<Modal position="center" visible={visible} onClose={onClose} preventClose>
-			<div className="relative bg-[#F5F1D7] text-[#FCF9DA] aspect-12/19 w-full h-full flex flex-col items-center justify-center">
+			<div className="relative bg-[#F5F1D7] text-[#FCF9DA] aspect-12/19 w-full h-max flex flex-col items-center justify-center">
 				<div className="flex flex-col w-full h-full">
 					<div className="bg-[#71705C]">
 						<div className="flex pt-4 pb-1 px-6 justify-between">
 							<button onClick={() => onClose()} className="size-8">
 								<Icon
 									icon={"entypo:arrow-left"}
-									className="w-full text-4xl h-full text-[#CE4F3E] shadow-2xl stroke-1.5 stroke-[#FAF9DB]"
+									className="w-full text-4xl h-full text-[#CE4F3E]  stroke-1.5 stroke-[#FAF9DB]"
 								/>
 							</button>
 							<div className="text-3xl italic font-bold">Dresscode</div>

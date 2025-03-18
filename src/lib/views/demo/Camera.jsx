@@ -14,18 +14,16 @@ const Camera = ({ item, visible, onClose }) => {
 			<div className="text-white relative flex flex-col justify-center items-center">
 				<div className="relative w-screen aspect-[19/12] max-w-[calc(544px-48px)]">
 					<button
-						className="absolute z-50 size-10"
+						className="absolute z-50 size-8"
 						style={{
-							top: `22%`,
-							left: `7%`,
-
-							transform: "translate(-50%, -50%)",
+							top: `17%`,
+							left: `3%`,
 						}}
 						onClick={() => onClose()}
 					>
 						<Icon
 							icon={"entypo:arrow-left"}
-							className="w-full h-full text-[#CE4F3E] shadow-2xl stroke-1.5 stroke-[#FAF9DB]"
+							className="w-full h-full text-[#CE4F3E]  stroke-1.5 stroke-[#FAF9DB]"
 						/>
 					</button>
 

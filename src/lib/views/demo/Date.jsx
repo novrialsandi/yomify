@@ -6,12 +6,10 @@ const Date = ({ visible, onClose }) => {
 		<Modal position="center" visible={visible} onClose={onClose} preventClose>
 			<div className="relative w-full ">
 				<button
-					className="absolute z-50 size-12"
+					className="absolute z-50 size-10"
 					style={{
-						top: `4%`,
-						left: `7%`,
-
-						transform: "translate(-50%, -50%)",
+						top: `2%`,
+						left: `3%`,
 					}}
 					onClick={() => onClose()}
 				>
@@ -35,17 +33,7 @@ const Date = ({ visible, onClose }) => {
 						height: "25%",
 					}}
 				></div>
-				<button
-					className="absolute "
-					style={{
-						top: `4%`,
-						left: `8%`,
-						width: `8%`,
-						height: "5%",
-						transform: "translate(-50%, -50%)",
-					}}
-					onClick={() => onClose()}
-				/>
+
 				<img
 					src="/demo/active/date.webp"
 					alt=""

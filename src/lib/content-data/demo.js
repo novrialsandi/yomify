@@ -15,7 +15,7 @@ export const contents = [
 		w: 12,
 		x: 26,
 		y: 7,
-		img: "/demo/base/hint.png",
+		img: "/demo/base/hint.webp",
 	},
 	{
 		trivia: true,
@@ -24,7 +24,7 @@ export const contents = [
 		w: 60,
 		x: 63.6,
 		y: 21.8,
-		img: "/demo/base/pictures.png",
+		img: "/demo/base/pictures.webp",
 		detail: "@najmialfata",
 	},
 	{
@@ -34,7 +34,7 @@ export const contents = [
 		w: 32.5,
 		x: 53.6,
 		y: 50.8,
-		img: "/demo/base/speaker.png",
+		img: "/demo/base/speaker.webp",
 		detail: "Novo Amor - Emigrate",
 	},
 	{
@@ -44,7 +44,7 @@ export const contents = [
 		w: 30,
 		x: 48.1,
 		y: 49.7,
-		img: "/demo/base/laptop.png",
+		img: "/demo/base/laptop.webp",
 		detail: "Wish",
 	},
 	{
@@ -54,19 +54,19 @@ export const contents = [
 		w: 36,
 		x: 76.9,
 		y: 82,
-		img: "/demo/base/camera.png",
+		img: "/demo/base/camera.webp",
 		detail: "Wedding Photo",
 		contents: [
 			{
-				img: "/demo/base/camera.png",
+				img: "/demo/base/camera.webp",
 				alt: "Wedding Photo",
 			},
 			{
-				img: "/demo/base/laptop.png",
+				img: "/demo/base/laptop.webp",
 				alt: "Wedding Photo",
 			},
 			{
-				img: "/demo/base/amplop.png",
+				img: "/demo/base/amplop.webp",
 				alt: "Wedding Photo",
 			},
 		],
@@ -79,7 +79,7 @@ export const contents = [
 		w: 8,
 		x: 69.6,
 		y: 40,
-		img: "/demo/base/date.png",
+		img: "/demo/base/date.webp",
 		detail: "31 Februari 2025",
 		contents: "31 Februari 2025, 09:00 WIB",
 	},
@@ -101,7 +101,7 @@ export const contents = [
 		w: 47,
 		x: 35.3,
 		y: 87.3,
-		img: "/demo/base/outfit.png",
+		img: "/demo/base/outfit.webp",
 	},
 	{
 		trivia: false,
@@ -110,7 +110,7 @@ export const contents = [
 		w: 53,
 		x: 54.2,
 		y: 67.3,
-		img: "/demo/base/amplop.png",
+		img: "/demo/base/amplop.webp",
 		detail: "Romeo & Juliet",
 	},
 
@@ -131,7 +131,7 @@ export const contents = [
 		w: 33.4,
 		x: 82,
 		y: 68.9,
-		img: "/demo/base/bottle.png",
+		img: "/demo/base/bottle.webp",
 		detail: "Wedding Invitation",
 		contents:
 			"Hello Yomies! \n\nThis is a wedding invitation that provides a unique experience for guests. Instead of simply displaying wedding details directly, this invitation encourages guests to interact with various image objects scattered throughout the invitation page. \n\n✨Each object plays a special role in conveying wedding details and trivia. \n\n🎉Enjoy the experience and see you at the wedding! \n\nBest regards,\nYomify🐾",
