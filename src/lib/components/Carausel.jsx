@@ -109,7 +109,7 @@ export default function Carousel({ children: slides, hideArrow }) {
 				</div>
 			) : (
 				<>
-					<div className="absolute top-0 text-xl py-1 px-4 bg-black/40 z-[40] flex items-center justify-between w-full ">
+					<div className="absolute top-0 py-1 px-4 bg-black/40 z-[40] flex items-center justify-between w-full ">
 						<div className="flex items-center gap-8">
 							00{curr}/00{slides.length}
 							<div>
@@ -158,7 +158,7 @@ export default function Carousel({ children: slides, hideArrow }) {
 							/>
 						</button>
 					</div>
-					<div className="absolute bottom-0 text-xl py-1 px-4 bg-black/40 z-[40] flex items-center justify-between w-full ">
+					<div className="absolute bottom-0 py-1 px-4 bg-black/40 z-[40] flex items-center justify-between w-full ">
 						<div className="flex w-full justify-around items-center gap-8">
 							<div>1/320</div>
 							<div>F8.0</div>
