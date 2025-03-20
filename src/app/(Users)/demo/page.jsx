@@ -9,19 +9,19 @@ const averiaLibre = Averia_Libre({
 });
 
 export const metadata = {
-	title: "Yomify - Demo",
+	title: "Yomify",
 	description:
-		"Interactive wedding invitations, company profiles, and life documentation with ease.",
-	metadataBase: new URL("https://www.yomify.com/demo"),
+		"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
+	metadataBase: new URL("https://www.yomify.com"),
 	openGraph: {
 		type: "website",
-		url: "https://www.yomify.com/demo/",
-		title: "Yomify - Demo",
+		url: "https://www.yomify.com/",
+		title: "Yomify",
 		description:
-			"Interactive wedding invitations, company profiles, and life documentation with ease.",
+			"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
 		images: [
 			{
-				url: "/demo/bg.webp",
+				url: "/meta.png",
 				width: 1200,
 				height: 630,
 			},
@@ -29,10 +29,10 @@ export const metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Yomify - Demo",
+		title: "Yomify",
 		description:
-			"Interactive wedding invitations, company profiles, and life documentation with ease.",
-		images: ["/demo/bg.webp"],
+			"Build Interactive wedding invitations, company profiles, and life documentation with ease.",
+		images: ["/meta.png"],
 	},
 };
 
