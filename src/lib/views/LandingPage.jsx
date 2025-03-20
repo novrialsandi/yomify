@@ -48,7 +48,7 @@ const LandingPage = () => {
 					Yomify
 				</motion.div>
 				<motion.img
-					src="/meta.png"
+					src="/meta.webp"
 					alt="Meta"
 					className="size-[80%]"
 					initial={{ opacity: 0 }}
