@@ -11,6 +11,7 @@ const Content = () => {
 	const randomId = Date.now().toString();
 	const randomNumber = Math.floor(Math.random() * 90000) + 10000; // Generate 5-digit random number
 
+	const [assetsLoaded, setAssetsLoaded] = useState(false);
 	const [intro, setIntro] = useState(true);
 	const audioRef = useRef(null);
 	const [musicActive, setMusicActive] = useState(false);
@@ -139,6 +140,23 @@ const Content = () => {
 			document.removeEventListener("visibilitychange", handleVisibilityChange);
 		};
 	}, [musicActive]);
+
+	useEffect(() => {
+		const preloadImages = () => {
+			const imagePromises = contents.map((item) => {
+				return new Promise((resolve) => {
+					const img = new Image();
+					img.src = item.img;
+					img.onload = () => resolve();
+					img.onerror = () => resolve();
+				});
+			});
+
+			Promise.all(imagePromises).then(() => setAssetsLoaded(true));
+		};
+
+		preloadImages();
+	}, []);
 
 	if (intro) {
 		return (
