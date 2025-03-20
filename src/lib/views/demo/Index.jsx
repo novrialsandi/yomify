@@ -39,7 +39,7 @@ const Content = () => {
 
 	const playClickSound = (item) => {
 		const sound = new Audio(`/audio/demo/${item || "menu-select.wav"}`);
-		sound.volume = 0.5;
+		sound.volume = 0.7;
 		sound.play().catch((error) => {
 			console.log("Error playing sound:", error);
 		});
@@ -48,7 +48,7 @@ const Content = () => {
 	const toggleMusic = () => {
 		if (!audioRef.current) {
 			audioRef.current = new Audio("/audio/demo/bg-music.mp3");
-			audioRef.current.volume = 0.3;
+			audioRef.current.volume = 0.2;
 			audioRef.current.loop = true;
 		}
 

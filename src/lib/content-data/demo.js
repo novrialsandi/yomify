@@ -39,7 +39,7 @@ export const contents = [
 	},
 	{
 		trivia: false,
-		audio: "",
+		audio: "laptop.wav",
 		name: "laptop",
 		w: 30,
 		x: 48.1,
@@ -74,7 +74,7 @@ export const contents = [
 
 	{
 		trivia: false,
-		audio: "",
+		audio: "date.wav",
 		name: "date",
 		w: 8,
 		x: 69.6,
