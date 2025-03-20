@@ -56,7 +56,6 @@ const Amplop = ({ visible, onClose }) => {
 				{story ? (
 					<div className="flex flex-col w-full h-full justify-center gap-8 items-center text-center px-6">
 						<h2 className="text-3xl font-bold w-full">Our Love Story</h2>
-						{/* <img src="/demo/active/nickname.png" alt="" className="w-[50%]" /> */}
 
 						<HorizontalTimeline timelineData={timelineData} />
 
@@ -70,14 +69,14 @@ const Amplop = ({ visible, onClose }) => {
 				) : (
 					// Tampilan Undangan
 					<div className="flex flex-col h-full justify-center gap-8 items-center text-center">
-						<img src="/demo/active/nickname.png" alt="" className="w-[50%]" />
+						<img src="/demo/active/nickname.webp" alt="" className="w-[50%]" />
 						<div className="flex flex-col items-center text-xl gap-2">
 							<div>
 								<div className="text-3xl">ROMEO PURWANTO</div>
 								<div>01 Januari 1991</div>
 							</div>
 							<img
-								src="/demo/active/sign.png"
+								src="/demo/active/sign.webp"
 								alt=""
 								className="w-[30%] h-auto"
 							/>

@@ -37,8 +37,8 @@ const Content = () => {
 		setCookie("openedContent", updatedOpenedContent);
 	};
 
-	const playClickSound = () => {
-		const sound = new Audio("/audio/demo/menu-select.wav");
+	const playClickSound = (item) => {
+		const sound = new Audio(`/audio/demo/${item || "menu-select.wav"}`);
 		sound.volume = 0.5;
 		sound.play().catch((error) => {
 			console.log("Error playing sound:", error);
@@ -191,7 +191,7 @@ const Content = () => {
 						alt=""
 						className="w-screen h-auto max-h-svh"
 					/>
-					{/* <img src="/demo/bg.png" alt="" className="w-full h-auto max-h-svh" /> */}
+					{/* <img src="/demo/bg.webp" alt="" className="w-full h-auto max-h-svh" /> */}
 
 					{/* Content Items */}
 					{contents.map((item, index) => (
@@ -206,7 +206,7 @@ const Content = () => {
 							}}
 							onClick={() => handleClick(item.name)}
 							onPointerUp={() => {
-								playClickSound();
+								playClickSound(item.audio);
 							}}
 							data-item={item.name}
 						>

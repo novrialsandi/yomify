@@ -85,7 +85,7 @@ const Laptop = ({ visible, onClose }) => {
 				<div className="w-full flex flex-col h-full justify-center gap-2 ">
 					<div className="flex flex-col w-full gap-2 h-auto max-h-svh">
 						<img
-							src="/demo/active/chat-header.png"
+							src="/demo/active/chat-header.webp"
 							alt=""
 							className="w-full h-auto"
 						/>

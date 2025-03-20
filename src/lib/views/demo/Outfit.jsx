@@ -51,22 +51,6 @@ const Outfit = ({ visible, onClose }) => {
 						</div>
 					</div>
 				</div>
-				{/* <button
-					className="absolute "
-					style={{
-						top: `5%`,
-						left: `10%`,
-						width: `8%`,
-						height: "4%",
-						transform: "translate(-50%, -50%)",
-					}}
-					onClick={() => onClose()}
-				/>
-				<img
-					src="/demo/active/dresscode.png"
-					alt=""
-					className="w-full h-auto max-h-svh"
-				/> */}
 			</div>
 		</Modal>
 	);

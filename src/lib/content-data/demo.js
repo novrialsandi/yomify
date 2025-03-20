@@ -6,7 +6,7 @@ export const contents = [
 		w: 12,
 		x: 10,
 		y: 7,
-		img: "/demo/base/list.png",
+		img: "/demo/base/list.webp",
 	},
 	{
 		trivia: true,
@@ -49,7 +49,7 @@ export const contents = [
 	},
 	{
 		trivia: false,
-		audio: "",
+		audio: "camera.wav",
 		name: "camera",
 		w: 36,
 		x: 76.9,
@@ -85,18 +85,18 @@ export const contents = [
 	},
 	{
 		trivia: false,
-		audio: "",
+		audio: "map.wav",
 		name: "map",
 		w: 21.5,
 		x: 89.3,
 		y: 54.7,
-		img: "/demo/base/map.png",
+		img: "/demo/base/map.webp",
 		detail: "Ndalem Hanoman",
 	},
 
 	{
 		trivia: true,
-		audio: "",
+		audio: "outfit.wav",
 		name: "outfit",
 		w: 47,
 		x: 35.3,
@@ -105,7 +105,7 @@ export const contents = [
 	},
 	{
 		trivia: false,
-		audio: "",
+		audio: "amplop.wav",
 		name: "amplop",
 		w: 53,
 		x: 54.2,
@@ -121,12 +121,12 @@ export const contents = [
 	// 	w: 45,
 	// 	x: 50,
 	// 	y: 71.8,
-	// 	img: "/demo/base/amplop.png",
+	// 	img: "/demo/base/amplop.webp",
 	// 	detail: "Romeo & Juliet",
 	// },
 	{
 		trivia: false,
-		audio: "",
+		audio: "bottle.wav",
 		name: "bottle",
 		w: 33.4,
 		x: 82,
