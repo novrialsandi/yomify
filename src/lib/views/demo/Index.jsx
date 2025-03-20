@@ -144,7 +144,7 @@ const Content = () => {
 		return (
 			<div className="relative w-full">
 				<img
-					src="/demo/intro.jpeg"
+					src="/demo/intro.webp"
 					alt=""
 					className="w-full h-auto max-h-svh"
 				/>

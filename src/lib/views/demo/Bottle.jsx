@@ -16,7 +16,7 @@ const Bottle = ({ visible, onClose }) => {
 					onClick={onClose}
 				/>
 				<img
-					src="/demo/intro.jpeg"
+					src="/demo/intro.webp"
 					alt=""
 					className="w-full h-auto max-h-svh"
 				/>
