@@ -11,6 +11,13 @@ const Content = () => {
 	const randomId = Date.now().toString();
 	const randomNumber = Math.floor(Math.random() * 90000) + 10000; // Generate 5-digit random number
 
+	// Audio context ref to persist across renders
+	const audioContextRef = useRef(null);
+	// Buffer cache to store loaded audio files
+	const audioBufferCacheRef = useRef({});
+	// Track if sounds are currently playing
+	const playingSourcesRef = useRef({});
+
 	const [assetsLoaded, setAssetsLoaded] = useState(false);
 	const [intro, setIntro] = useState(true);
 	const audioRef = useRef(null);
@@ -38,12 +45,83 @@ const Content = () => {
 		setCookie("openedContent", updatedOpenedContent);
 	};
 
-	const playClickSound = (item) => {
-		const sound = new Audio(`/audio/demo/${item || "menu-select.wav"}`);
-		sound.volume = 0.7;
-		sound.play().catch((error) => {
-			console.log("Error playing sound:", error);
-		});
+	// Initialize audio context on component mount
+	useEffect(() => {
+		// Create audio context only once when component mounts
+		audioContextRef.current = new (window.AudioContext ||
+			window.webkitAudioContext)();
+
+		// Clean up function
+		return () => {
+			if (
+				audioContextRef.current &&
+				audioContextRef.current.state !== "closed"
+			) {
+				audioContextRef.current.close();
+			}
+		};
+	}, []);
+
+	// Function to load audio buffer
+	const loadAudioBuffer = async (soundKey) => {
+		try {
+			const response = await fetch(`/audio/demo/${soundKey}`);
+			const arrayBuffer = await response.arrayBuffer();
+			const audioBuffer = await audioContextRef.current.decodeAudioData(
+				arrayBuffer
+			);
+			audioBufferCacheRef.current[soundKey] = audioBuffer;
+			return audioBuffer;
+		} catch (error) {
+			console.error("Error loading audio:", error);
+			return null;
+		}
+	};
+
+	const playClickSound = async (item) => {
+		// Resume audio context if it's suspended (needed for some browsers)
+		if (audioContextRef.current.state === "suspended") {
+			await audioContextRef.current.resume();
+		}
+
+		// Use default sound if no item specified
+		const soundKey = item || "menu-select.wav";
+
+		// Check if this sound is already playing
+		if (playingSourcesRef.current[soundKey]) {
+			// Don't play again if already playing
+			return;
+		}
+
+		// Get or load the audio buffer
+		let buffer = audioBufferCacheRef.current[soundKey];
+		if (!buffer) {
+			buffer = await loadAudioBuffer(soundKey);
+			if (!buffer) return; // Exit if buffer couldn't be loaded
+		}
+
+		// Create source node
+		const source = audioContextRef.current.createBufferSource();
+		source.buffer = buffer;
+
+		// Create gain node for volume control
+		const gainNode = audioContextRef.current.createGain();
+		gainNode.gain.value = 0.7; // Set volume to 0.7
+
+		// Connect nodes: source -> gain -> destination
+		source.connect(gainNode);
+		gainNode.connect(audioContextRef.current.destination);
+
+		// Mark this sound as playing
+		playingSourcesRef.current[soundKey] = source;
+
+		// When sound ends, remove from playing sources
+		source.onended = () => {
+			delete playingSourcesRef.current[soundKey];
+		};
+
+		// Start playback
+		source.start(0);
 	};
 
 	const toggleMusic = () => {

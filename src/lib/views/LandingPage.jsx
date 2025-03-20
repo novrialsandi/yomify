@@ -1,14 +1,11 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
 import { SiWhatsapp, SiGmail } from "react-icons/si";
 import { motion } from "framer-motion";
 import Button from "../components/Button";
 
 const LandingPage = () => {
-	const router = useRouter();
-
 	const services = [
 		{
 			title: "Wedding Invitations",
