@@ -11,6 +11,12 @@ html {
 	-webkit-text-size-adjust: 100%;
 }
 
+input,
+textarea,
+select {
+	font-size: 16px !important;
+}
+
 .driver-popover.driverjs-theme {
 	background-color: transparent;
 	color: #fff;
