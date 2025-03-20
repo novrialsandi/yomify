@@ -1,6 +1,7 @@
 import "./globals.css";
 import "driver.js/dist/driver.css";
 import { Single_Day } from "next/font/google";
+import Head from "next/head";
 
 const singleDay = Single_Day({
 	weight: "400",
@@ -11,12 +12,12 @@ const singleDay = Single_Day({
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" translate="no">
-			<head>
+			<Head>
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 				/>
-			</head>
+			</Head>
 			<body
 				className={`${singleDay.className} min-h-svh flex items-center justify-center`}
 			>

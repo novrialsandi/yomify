@@ -2,19 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-	touch-action: manipulation;
-}
-
-html {
-	-webkit-text-size-adjust: 100%;
-}
-
 input,
 textarea,
 select {
 	font-size: 16px !important;
+	touch-action: manipulation;
 }
 
 .driver-popover.driverjs-theme {

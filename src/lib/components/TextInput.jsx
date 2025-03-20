@@ -110,7 +110,6 @@ const TextInput = ({
 						hasIconRight || isPasswordField ? "pr-10" : "pr-4"
 					}`}
 					required={isRequired}
-					style={{ touchAction: "manipulation" }}
 				/>
 				{isPasswordField && (
 					<div className="absolute inset-y-0 right-0 flex items-center px-4">
