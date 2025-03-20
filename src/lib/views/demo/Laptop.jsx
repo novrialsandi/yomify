@@ -135,28 +135,25 @@ const Laptop = ({ visible, onClose }) => {
 						</div>
 					</div>
 
-					<div>
-						<div className="flex gap-2 w-full bg-[#B99D75] px-3 py-2">
-							<TextInput
-								value={message.message}
-								onChange={(e) =>
-									setMessage((prev) => ({
-										...prev,
-										message: e.target.value,
-									}))
-								}
-							/>
-							<Button
-								size="small"
-								className="max-w-24"
-								onClick={() => postMessage()}
-								disabled={!message.message || loadingPost}
-								isLoading={loadingPost}
-							>
-								Send
-							</Button>
-						</div>
-						<div className="bg-[#9C7031]"></div>
+					<div className="flex gap-2 w-full bg-[#B99D75] px-3 py-2">
+						<TextInput
+							value={message.message}
+							onChange={(e) =>
+								setMessage((prev) => ({
+									...prev,
+									message: e.target.value,
+								}))
+							}
+						/>
+						<Button
+							size="small"
+							className="max-w-24"
+							onClick={() => postMessage()}
+							disabled={!message.message || loadingPost}
+							isLoading={loadingPost}
+						>
+							Send
+						</Button>
 					</div>
 				</div>
 			</div>

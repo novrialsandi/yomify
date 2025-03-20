@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
 input,
-textarea,
-select {
+textarea {
 	font-size: 16px !important;
 	touch-action: manipulation;
 }
