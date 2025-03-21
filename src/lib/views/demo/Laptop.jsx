@@ -99,10 +99,10 @@ const Laptop = ({ visible, onClose }) => {
 					<img
 						src="/demo/active/chat-header.webp"
 						alt=""
-						className="sticky top-0 w-full h-auto"
+						className=" w-full h-auto"
 					/>
 					<div
-						className="flex overflow-y-auto flex-col space-y-2 px-4 "
+						className="flex overflow-y-auto  flex-col space-y-2 px-4 "
 						ref={chatContainerRef}
 					>
 						{loadingRoom ? (
@@ -145,7 +145,7 @@ const Laptop = ({ visible, onClose }) => {
 							</p>
 						)}
 					</div>
-					<div className="sticky bottom-0 right-0 left-0 flex gap-2 w-full bg-[#B99D75] px-3 py-2">
+					<div className=" flex gap-2 w-full bg-[#B99D75] px-3 py-2">
 						<TextInput
 							value={message.message}
 							onChange={(e) =>
