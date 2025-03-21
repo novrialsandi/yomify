@@ -11,37 +11,35 @@ const Camera = ({ item, visible, onClose }) => {
 			visible={visible}
 			onClose={onClose}
 		>
-			<div className="text-white relative flex flex-col justify-center items-center">
-				<div className="relative w-screen aspect-[19/12] max-w-[calc(544px-48px)]">
-					<button
-						className="absolute z-50 size-8"
-						style={{
-							top: `17%`,
-							left: `3%`,
-						}}
-						onClick={() => onClose()}
-					>
-						<Icon
-							icon={"entypo:arrow-left"}
-							className="w-full h-full text-[#CE4F3E]  stroke-1.5 stroke-[#FAF9DB]"
-						/>
-					</button>
+			<div className="relative text-white ">
+				<button
+					className="absolute z-50 size-8"
+					style={{
+						top: `17%`,
+						left: `3%`,
+					}}
+					onClick={() => onClose()}
+				>
+					<Icon
+						icon={"entypo:arrow-left"}
+						className="w-full h-full text-[#CE4F3E]  stroke-1.5 stroke-[#FAF9DB]"
+					/>
+				</button>
 
-					<Carousel hideArrow={true}>
-						{item.contents.map((content, i) => (
-							<div
-								key={i} // Make sure each service item has a unique id
-								className="min-w-full aspect-19/12 rounded-2xl shadow-lg gap-4 flex flex-col justify-center items-center"
-							>
-								<img
-									src={content.img}
-									alt={content.alt}
-									className="h-full w-auto p-6"
-								/>
-							</div>
-						))}
-					</Carousel>
-				</div>
+				<Carousel hideArrow={true}>
+					{item.contents.map((content, i) => (
+						<div
+							key={i}
+							className="aspect-19/12 flex flex-col justify-center items-center"
+						>
+							<img
+								src={content.img}
+								alt={content.alt}
+								className="h-full w-auto py-8"
+							/>
+						</div>
+					))}
+				</Carousel>
 			</div>
 		</Modal>
 	);
