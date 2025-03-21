@@ -82,7 +82,13 @@ const Laptop = ({ visible, onClose }) => {
 	}, [chats]);
 
 	return (
-		<Modal position="center" visible={visible} onClose={onClose} preventClose>
+		<Modal
+			position="center"
+			padding="0"
+			visible={visible}
+			onClose={onClose}
+			preventClose
+		>
 			<div className="relative w-full h-full bg-[#EFE7D2]">
 				<button
 					className="absolute z-50"
@@ -95,59 +101,56 @@ const Laptop = ({ visible, onClose }) => {
 					}}
 					onClick={() => onClose()}
 				/>
-				<div className="w-full flex flex-col h-full justify-center gap-2 ">
-					<div className="flex flex-col w-full gap-2 h-auto max-h-svh">
-						<img
-							src="/demo/active/chat-header.webp"
-							alt=""
-							className="w-full h-auto"
-						/>
-						<div
-							className="flex flex-col space-y-2  aspect-12/18 f-full px-4 overflow-y-auto"
-							ref={chatContainerRef}
-						>
-							{loadingRoom ? (
-								<div className="w-full flex items-center aspect-12/18 justify-center">
-									<div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
-								</div>
-							) : chats.length > 0 ? (
-								chats.map((chat, index) => {
-									const isMe = chat.user_id === session.user_id;
-									const userColor = getUserColor(chat.user_id);
+				<div className="flex flex-col w-full gap-2 h-auto max-h-svh">
+					<img
+						src="/demo/active/chat-header.webp"
+						alt=""
+						className="w-full h-auto"
+					/>
+					<div
+						className="flex flex-col space-y-2   f-full px-4 overflow-y-auto"
+						ref={chatContainerRef}
+					>
+						{loadingRoom ? (
+							<div className="w-full h-svh flex items-center  justify-center">
+								<div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
+							</div>
+						) : chats.length > 0 ? (
+							chats.map((chat, index) => {
+								const isMe = chat.user_id === session.user_id;
+								const userColor = getUserColor(chat.user_id);
 
-									return (
+								return (
+									<div
+										key={index}
+										className={`flex w-full h-svh ${
+											isMe ? "justify-end" : "justify-start"
+										}`}
+									>
 										<div
-											key={index}
-											className={`flex w-full ${
-												isMe ? "justify-end" : "justify-start"
+											className={`px-2 py-1 max-w-[75%] rounded-t-xl ${
+												isMe
+													? "bg-[#E4B893] rounded-l-xl"
+													: "bg-[#FCF9DA] rounded-r-xl"
 											}`}
 										>
-											<div
-												className={`px-2 py-1 max-w-[75%] rounded-t-xl ${
-													isMe
-														? "bg-[#E4B893] rounded-l-xl"
-														: "bg-[#FCF9DA] rounded-r-xl"
-												}`}
+											<p
+												style={{ color: userColor }}
+												className={`${isMe ? "text-right" : ""}`}
 											>
-												<p
-													style={{ color: userColor }}
-													className={`${isMe ? "text-right" : ""}`}
-												>
-													{chat.name}
-												</p>
-												<p className="text-black/80">{chat.message}</p>
-											</div>
+												{chat.name}
+											</p>
+											<p className="text-black/80">{chat.message}</p>
 										</div>
-									);
-								})
-							) : (
-								<p className="text-gray-400 text-center aspect-12/18 flex items-center justify-center">
-									No messages yet.
-								</p>
-							)}
-						</div>
+									</div>
+								);
+							})
+						) : (
+							<p className="text-gray-400 text-center h-svh flex items-center justify-center">
+								No messages yet.
+							</p>
+						)}
 					</div>
-
 					<div className="flex gap-2 w-full bg-[#B99D75] px-3 py-2">
 						<TextInput
 							value={message.message}
