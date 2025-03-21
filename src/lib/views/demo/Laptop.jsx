@@ -2,21 +2,35 @@ import fetchApi from "@/lib/api/fetchApi";
 import Modal from "@/lib/components/Modal";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { getCookie } from "@/lib/helpers/cookie";
+import { getCookie, setCookie } from "@/lib/helpers/cookie";
 import TextInput from "@/lib/components/TextInput";
 import Button from "@/lib/components/Button";
 
 const Laptop = ({ visible, onClose }) => {
+	const randomId = Date.now().toString();
+	const randomNumber = Math.floor(Math.random() * 90000) + 10000; // Generate 5-digit random number
+
 	const chatContainerRef = useRef(null);
 	const pathname = usePathname();
 	const slug = pathname.split("/").pop();
 	const session = getCookie("session");
 	const [chats, setChats] = useState([]);
-	const [message, setMessage] = useState({
-		message: "",
-		user_id: session.user_id,
-		name: session.name,
+	const [message, setMessage] = useState(() => {
+		return {
+			message: "",
+			user_id: session?.user_id || randomId,
+			name: session?.name || `demo_${randomNumber}`,
+		};
 	});
+
+	// Set session cookie only if it doesn't exist
+	if (!getCookie("session")) {
+		setCookie("session", {
+			user_id: randomId,
+			name: `demo_${randomNumber}`,
+		});
+	}
+
 	const [loadingPost, setLoadingPost] = useState(false);
 	const [loadingRoom, setLoadingRoom] = useState(false);
 

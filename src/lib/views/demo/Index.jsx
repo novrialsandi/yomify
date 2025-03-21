@@ -9,9 +9,6 @@ import { driver } from "driver.js";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Content = () => {
-	const randomId = Date.now().toString();
-	const randomNumber = Math.floor(Math.random() * 90000) + 10000; // Generate 5-digit random number
-
 	// Audio context ref to persist across renders
 	const audioContextRef = useRef(null);
 	// Buffer cache to store loaded audio files
@@ -269,10 +266,6 @@ const Content = () => {
 								setIntro(false);
 								toggleMusic();
 								if (!getCookie("session")) {
-									setCookie("session", {
-										user_id: randomId,
-										name: `demo_${randomNumber}`,
-									});
 									runDriverTour();
 									updateOpenedContent("bottle");
 								}
