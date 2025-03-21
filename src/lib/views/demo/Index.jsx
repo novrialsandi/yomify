@@ -143,7 +143,7 @@ const Content = () => {
 	const runDriverTour = () => {
 		const driverObj = driver({
 			disableActiveInteraction: true,
-			allowClose: !getCookie("session") ? false : true,
+			allowClose: !getCookie("intro") ? false : true,
 			popoverClass: "driverjs-theme",
 			showProgress: true,
 			stagePadding: 0,
@@ -265,9 +265,10 @@ const Content = () => {
 							onClick={() => {
 								setIntro(false);
 								toggleMusic();
-								if (!getCookie("session")) {
+								if (!getCookie("intro")) {
 									runDriverTour();
 									updateOpenedContent("bottle");
+									setCookie("intro", true);
 								}
 							}}
 						/>
