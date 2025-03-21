@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const timelineData = [
 	{
@@ -63,6 +64,7 @@ const HorizontalTimeline = () => {
 
 	return (
 		<div className="w-full ">
+			<h2 className="text-3xl font-bold w-full mb-8">Our Love Story</h2>
 			<div className="relative " ref={timelineRef}>
 				<div
 					className="h-1 bg-[#86B595] absolute top-1/2 transform -translate-y-1/2 transition-all duration-500 ease-in-out"
@@ -77,27 +79,43 @@ const HorizontalTimeline = () => {
 							onClick={() => handleNodeClick(index)}
 							ref={(el) => (nodeRefs.current[index] = el)}
 						>
-							<img
+							<motion.img
 								src={item.img}
 								alt=""
-								className={`size-16 rounded-full transition-transform duration-300 ${
-									activeIndex === index ? "animate-wiggle" : ""
-								}`}
+								className="size-16 rounded-full"
+								animate={
+									activeIndex === index
+										? { rotate: [-10, 10, -10] } // Simplified for even motion
+										: { rotate: 0 }
+								}
+								transition={{
+									duration: 0.6, // Adjust for smooth continuous motion
+									ease: "linear", // Ensures constant speed
+									repeat: activeIndex === index ? Infinity : 0, // Infinite loop when active
+									repeatType: "loop", // Ensures no pauses between loops
+								}}
 							/>
 						</div>
 					))}
 				</div>
 			</div>
 			{timelineData[activeIndex] && (
-				<div className="flex flex-col items-center gap-4 mt-4">
+				<motion.div
+					key={activeIndex} // Ensures animation runs when changing activeIndex
+					className="flex flex-col items-center gap-4 mt-4"
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					exit={{ opacity: 0, y: -20 }}
+					transition={{ duration: 0.5 }}
+				>
 					<div>
 						<h3 className="text-2xl font-bold">
 							{timelineData[activeIndex].title}
 						</h3>
-						<h4 className=" text-gray-600">{timelineData[activeIndex].date}</h4>
+						<h4 className="text-gray-600">{timelineData[activeIndex].date}</h4>
 					</div>
 					<p className="text-center">{timelineData[activeIndex].content}</p>
-				</div>
+				</motion.div>
 			)}
 		</div>
 	);
