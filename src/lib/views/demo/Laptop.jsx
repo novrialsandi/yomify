@@ -102,7 +102,7 @@ const Laptop = ({ visible, onClose }) => {
 						className=" w-full h-auto"
 					/>
 					<div
-						className="flex overflow-y-auto  flex-col space-y-2 px-4 "
+						className="flex overflow-y-auto h-full flex-col space-y-2 px-4 "
 						ref={chatContainerRef}
 					>
 						{loadingRoom ? (
@@ -140,7 +140,7 @@ const Laptop = ({ visible, onClose }) => {
 								);
 							})
 						) : (
-							<p className="text-gray-400 text-center  flex items-center justify-center">
+							<p className="text-gray-400 h-full text-center flex items-center justify-center">
 								No messages yet.
 							</p>
 						)}

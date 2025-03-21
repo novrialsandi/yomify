@@ -6,46 +6,16 @@ import { useState } from "react";
 const Amplop = ({ visible, onClose }) => {
 	const [story, setStory] = useState(false);
 
-	const timelineData = [
-		{
-			id: 1,
-			title: "Step 1",
-			date: "Jan 2025",
-			content: "Timeline content for step 1",
-		},
-		{
-			id: 2,
-			title: "Step 2",
-			date: "Feb 2025",
-			content: "Timeline content for step 2",
-		},
-		{
-			id: 3,
-			title: "Step 3",
-			date: "Mar 2025",
-			content: "Timeline content for step 3",
-		},
-		{
-			id: 4,
-			title: "Step 4",
-			date: "Apr 2025",
-			content: "Timeline content for step 4",
-		},
-		{
-			id: 5,
-			title: "Step 5",
-			date: "May 2025",
-			content: "Timeline content for step 5",
-		},
-	];
-
 	return (
 		<Modal position="center" visible={visible} onClose={onClose} preventClose>
-			<div className="relative h-max w-auto text-[#86B595] bg-[#F1EDCA] aspect-12/19 flex flex-col justify-center items-center">
+			<div className="relative aspect-9/16  w-auto text-[#86B595] bg-[#F1EDCA] flex flex-col justify-center items-center">
 				<button
 					className="absolute z-50 size-10"
 					style={{ top: `3%`, left: `5%` }}
-					onClick={onClose}
+					onClick={() => {
+						onClose();
+						setStory(false);
+					}}
 				>
 					<Icon
 						icon="entypo:arrow-left"
@@ -54,10 +24,10 @@ const Amplop = ({ visible, onClose }) => {
 				</button>
 
 				{story ? (
-					<div className="flex flex-col w-full h-full justify-center gap-8 items-center text-center px-6">
+					<div className="flex flex-col w-full h-full justify-around gap-8 items-center text-center p-8">
 						<h2 className="text-3xl font-bold w-full">Our Love Story</h2>
 
-						<HorizontalTimeline timelineData={timelineData} />
+						<HorizontalTimeline />
 
 						<button
 							className="px-2 py-1 bg-[#86B595] text-white rounded-lg"
@@ -89,13 +59,13 @@ const Amplop = ({ visible, onClose }) => {
 							<div>with full hearts,</div>
 							<div>joyfully invite you to their wedding</div>
 						</div>
-						{/* Tombol untuk menampilkan cerita */}
-						{/* <button
+
+						<button
 							className="px-2 py-1 bg-[#86B595] text-white rounded-lg"
 							onClick={() => setStory(true)}
 						>
 							Read Our Story
-						</button> */}
+						</button>
 					</div>
 				)}
 			</div>
