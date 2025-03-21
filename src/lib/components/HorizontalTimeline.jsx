@@ -80,7 +80,7 @@ const HorizontalTimeline = () => {
 							<img
 								src={item.img}
 								alt=""
-								className={`size-12 rounded-full transition-transform duration-300 ${
+								className={`size-16 rounded-full transition-transform duration-300 ${
 									activeIndex === index ? "animate-wiggle" : ""
 								}`}
 							/>
