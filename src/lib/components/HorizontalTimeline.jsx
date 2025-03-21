@@ -64,7 +64,6 @@ const HorizontalTimeline = () => {
 
 	return (
 		<div className="w-full ">
-			<h2 className="text-3xl font-bold w-full mb-8">Our Love Story</h2>
 			<div className="relative " ref={timelineRef}>
 				<div
 					className="h-1 bg-[#86B595] absolute top-1/2 transform -translate-y-1/2 transition-all duration-500 ease-in-out"

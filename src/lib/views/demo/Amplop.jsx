@@ -24,7 +24,9 @@ const Amplop = ({ visible, onClose }) => {
 				</button>
 
 				{story ? (
-					<div className="flex flex-col w-full h-full justify-between gap-8 items-center text-center p-8 py-12">
+					<div className="flex flex-col w-full h-full justify-center gap-8 items-center text-center p-8">
+						<h2 className="text-3xl font-bold w-full ">Our Love Story</h2>
+
 						<HorizontalTimeline />
 
 						<button
