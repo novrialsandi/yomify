@@ -11,11 +11,11 @@ const Camera = ({ item, visible, onClose }) => {
 			visible={visible}
 			onClose={onClose}
 		>
-			<div className="relative text-white ">
+			<div className="relative text-white  ">
 				<button
 					className="absolute z-50 size-8"
 					style={{
-						top: `17%`,
+						top: `7%`,
 						left: `3%`,
 					}}
 					onClick={() => onClose()}
@@ -28,16 +28,12 @@ const Camera = ({ item, visible, onClose }) => {
 
 				<Carousel hideArrow={true}>
 					{item.contents.map((content, i) => (
-						<div
+						<img
 							key={i}
-							className="aspect-19/12 flex flex-col justify-center items-center"
-						>
-							<img
-								src={content.img}
-								alt={content.alt}
-								className="h-full w-auto py-8"
-							/>
-						</div>
+							src={content.img}
+							alt={content.alt}
+							className=" py-8"
+						/>
 					))}
 				</Carousel>
 			</div>
