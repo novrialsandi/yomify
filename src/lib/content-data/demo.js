@@ -58,15 +58,19 @@ export const contents = [
 		detail: "Wedding Photo",
 		contents: [
 			{
-				img: "/demo/base/camera.webp",
+				img: "/demo/active/photo1.jpg",
 				alt: "Wedding Photo",
 			},
 			{
-				img: "/demo/base/laptop.webp",
+				img: "/demo/active/photo2.jpg",
 				alt: "Wedding Photo",
 			},
 			{
-				img: "/demo/base/amplop.webp",
+				img: "/demo/active/photo3.jpg",
+				alt: "Wedding Photo",
+			},
+			{
+				img: "/demo/active/photo4.jpg",
 				alt: "Wedding Photo",
 			},
 		],
@@ -136,4 +140,14 @@ export const contents = [
 		contents:
 			"Hello Yomies! \n\nThis is a wedding invitation that provides a unique experience for guests. Instead of simply displaying wedding details directly, this invitation encourages guests to interact with various image objects scattered throughout the invitation page. \n\n✨Each object plays a special role in conveying wedding details and trivia. \n\n🎉Enjoy the experience and see you at the wedding! \n\nBest regards,\nYomify🐾",
 	},
+	// {
+	// 	trivia: true,
+	// 	audio: "bottle.wav",
+	// 	name: "trex",
+	// 	w: 19.8,
+	// 	x: 27.5,
+	// 	y: 49.8,
+	// 	img: "/demo/base/trex.webp",
+	// 	detail: "",
+	// },
 ];

@@ -6,6 +6,7 @@ import { contents } from "@/lib/content-data/demo";
 import ModalContent from "./ModalContent";
 import DisableRightClick from "@/lib/components/DisableRightClick";
 import { driver } from "driver.js";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Content = () => {
 	const randomId = Date.now().toString();
@@ -127,7 +128,7 @@ const Content = () => {
 	const toggleMusic = () => {
 		if (!audioRef.current) {
 			audioRef.current = new Audio("/audio/demo/bg-music.mp3");
-			audioRef.current.volume = 0.2;
+			audioRef.current.volume = 0.15;
 			audioRef.current.loop = true;
 		}
 
@@ -138,7 +139,7 @@ const Content = () => {
 		}
 
 		setMusicActive(!musicActive);
-		updateOpenedContent("music");
+		// updateOpenedContent("music");
 		setModalContent((prev) => ({ ...prev, music: !prev.music }));
 	};
 
@@ -236,58 +237,56 @@ const Content = () => {
 		preloadImages();
 	}, []);
 
-	if (intro) {
-		return (
-			<div className="relative w-full">
-				<img
-					src="/demo/intro.webp"
-					alt=""
-					className="w-full h-auto max-h-svh"
-				/>
-				<button
-					className="absolute left-1/2 top-[75%] "
-					style={{
-						top: `81%`,
-						left: `50%`,
-						width: `38%`,
-						height: "12%",
-						transform: "translate(-50%, -50%)",
-					}}
-					onClick={() => {
-						setIntro(false);
-						toggleMusic();
-						if (!getCookie("session")) {
-							setCookie("session", {
-								user_id: randomId,
-								name: `demo_${randomNumber}`,
-							});
-							runDriverTour();
-							updateOpenedContent("bottle");
-						}
-					}}
-				/>
-			</div>
-		);
-	}
-
 	return (
-		<>
-			<DisableRightClick>
-				<ModalContent
-					contents={contents}
-					modalContent={modalContent}
-					toggleModal={toggleModal}
-					openedContent={getOpenedContent()}
-				/>
+		<DisableRightClick>
+			<ModalContent
+				contents={contents}
+				modalContent={modalContent}
+				toggleModal={toggleModal}
+				openedContent={getOpenedContent()}
+			/>
+			<AnimatePresence>
+				{intro && (
+					<div key="intro" className="absolute z-10 w-full">
+						<motion.img
+							src="/demo/intro.webp"
+							alt=""
+							className="w-full h-auto max-h-svh"
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, scale: 1.2 }}
+							transition={{ duration: 0.6, ease: "easeOut" }}
+						/>
+						<button
+							className="absolute left-1/2 top-[75%]"
+							style={{
+								top: `81%`,
+								left: `50%`,
+								width: `38%`,
+								height: "12%",
+								transform: "translate(-50%, -50%)",
+							}}
+							onClick={() => {
+								setIntro(false);
+								toggleMusic();
+								if (!getCookie("session")) {
+									setCookie("session", {
+										user_id: randomId,
+										name: `demo_${randomNumber}`,
+									});
+									runDriverTour();
+									updateOpenedContent("bottle");
+								}
+							}}
+						/>
+					</div>
+				)}
 
-				{/* Image Container */}
 				<div className="relative w-full">
 					<img
 						src="/demo/cleanBG.webp"
 						alt=""
 						className="w-screen h-auto max-h-svh"
 					/>
-					{/* <img src="/demo/bg.webp" alt="" className="w-full h-auto max-h-svh" /> */}
 
 					{/* Content Items */}
 					{contents.map((item, index) => (
@@ -340,8 +339,8 @@ const Content = () => {
 						</div>
 					))}
 				</div>
-			</DisableRightClick>
-		</>
+			</AnimatePresence>
+		</DisableRightClick>
 	);
 };
 

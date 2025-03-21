@@ -59,7 +59,7 @@ export default function Carousel({ children: slides, hideArrow }) {
 				onTransitionEnd={handleTransitionEnd}
 			>
 				{carouselSlides.map((slide, index) => (
-					<div key={index} className="w-full flex-shrink-0">
+					<div key={index} className="w-full p-2 flex-shrink-0">
 						{slide}
 					</div>
 				))}

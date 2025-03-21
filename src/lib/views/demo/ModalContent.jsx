@@ -7,6 +7,7 @@ import Map from "./Map";
 import Date from "./Date";
 import Amplop from "./Amplop";
 import Laptop from "./Laptop";
+import Trex from "./Trex";
 
 const ModalContent = ({
 	contents,
@@ -86,6 +87,15 @@ const ModalContent = ({
 					} else if (item.name === "map") {
 						return (
 							<Map
+								key={item.name}
+								item={item}
+								visible={modalContent[item.name]}
+								onClose={() => toggleModal(item.name)}
+							/>
+						);
+					} else if (item.name === "trex") {
+						return (
+							<Trex
 								key={item.name}
 								item={item}
 								visible={modalContent[item.name]}
