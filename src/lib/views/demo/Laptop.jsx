@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { getCookie, setCookie } from "@/lib/helpers/cookie";
 import TextInput from "@/lib/components/TextInput";
 import Button from "@/lib/components/Button";
+import TextArea from "@/lib/components/TextArea";
 
 const randomId = Date.now().toString();
 const randomNumber = Math.floor(Math.random() * 90000) + 10000; // Generate 5-digit random number
@@ -134,7 +135,9 @@ const Laptop = ({ visible, onClose }) => {
 											>
 												{chat.name}
 											</p>
-											<p className="text-black/80">{chat.message}</p>
+											<p className="text-black/80 whitespace-pre-line">
+												{chat.message}
+											</p>
 										</div>
 									</div>
 								);
@@ -145,8 +148,8 @@ const Laptop = ({ visible, onClose }) => {
 							</p>
 						)}
 					</div>
-					<div className=" flex gap-2 w-full bg-[#B99D75] px-3 py-2">
-						<TextInput
+					<div className=" flex items-end gap-2 w-full bg-[#B99D75] px-3 py-2">
+						<TextArea
 							value={message.message}
 							onChange={(e) =>
 								setMessage((prev) => ({
