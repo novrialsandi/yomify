@@ -39,7 +39,7 @@ export const metadata = {
 const MainPage = () => {
 	return (
 		<div
-			className={`${averiaLibre.className} relative flex items-center  w-full`}
+			className={`${averiaLibre.className} relative flex items-center justify-center w-full`}
 		>
 			<Content />
 			<GoogleAnalytics gaId="G-NW36Y5FXGB" />

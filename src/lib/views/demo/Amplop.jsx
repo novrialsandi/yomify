@@ -52,7 +52,7 @@ const Amplop = ({ visible, onClose }) => {
 							/>
 							<div>
 								<div className="text-3xl">JULIET LESTARI</div>
-								<div>01 Januari 1991</div>
+								<div>02 Februari 1991</div>
 							</div>
 						</div>
 						<div>

@@ -248,7 +248,7 @@ const Content = () => {
 						<motion.img
 							src="/demo/intro.webp"
 							alt=""
-							className="w-full h-auto max-h-svh"
+							className="h-auto"
 							animate={{ opacity: 1, scale: 1 }}
 							exit={{ opacity: 0, scale: 1.2 }}
 							transition={{ duration: 0.6, ease: "easeOut" }}
@@ -276,11 +276,7 @@ const Content = () => {
 				)}
 
 				<div className="relative w-full">
-					<img
-						src="/demo/cleanBG.webp"
-						alt=""
-						className="w-screen h-auto max-h-svh"
-					/>
+					<img src="/demo/cleanBG.webp" alt="" className="h-auto" />
 
 					{/* Content Items */}
 					{contents.map((item, index) => (

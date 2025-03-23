@@ -13,7 +13,7 @@ const timelineData = [
 	{
 		id: 2,
 		title: "Date",
-		date: "Desember 2024",
+		date: "Des 2024",
 		content:
 			"As time passed, our bond grew stronger. Each moment spent together became a cherished memory, filled with love, understanding, and dreams of the future. From late-night talks to shared adventures, our love story flourished in the simplest yet most meaningful ways.",
 		img: "/demo/active/stage2.png",
@@ -21,7 +21,7 @@ const timelineData = [
 	{
 		id: 3,
 		title: "Commit",
-		date: "Januari 2025",
+		date: "Jan 2025",
 		content:
 			"With hearts full of love and certainty, we took the next step—choosing to walk this journey hand in hand for a lifetime. This commitment is not just a promise but a vow to cherish, support, and love each other through every season of life.",
 		img: "/demo/active/stage3.png",
