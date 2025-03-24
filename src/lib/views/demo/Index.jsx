@@ -337,7 +337,9 @@ const Content = () => {
 				)}
 
 				<div className="relative w-full">
-					<img src="/demo/cleanBG.webp" alt="" className="h-auto" />
+					{/* <img src="/demo/cleanBG.webp" alt="" className="h-auto" /> */}
+					<img src="/demo/cleanBG-new.webp" alt="" className="h-auto" />
+					{/* <img src="/demo/full-new.webp" alt="" className="h-auto" /> */}
 
 					{contents.map((item, index) => (
 						<div
@@ -372,19 +374,9 @@ const Content = () => {
 										className="absolute"
 										style={{
 											top: `${item.y - 100}%`,
-											left: `${item.x + 35}%`,
-											width: `${item.w}%`,
+											left: `${item.x + 0}%`,
+											width: `${item.w + 20}%`,
 											transform: "translate(-50%, -50%)",
-										}}
-									/>
-									<img
-										src="/demo/active/speaker.gif"
-										alt=""
-										className="absolute"
-										style={{
-											top: `${item.y - 160}%`,
-											left: `${item.x - 60}%`,
-											width: `${item.w}%`,
 										}}
 									/>
 								</>

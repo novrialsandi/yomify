@@ -14,7 +14,6 @@ const Amplop = ({ visible, onClose }) => {
 					style={{ top: `3%`, left: `5%` }}
 					onClick={() => {
 						onClose();
-						setStory(false);
 					}}
 				>
 					<Icon
