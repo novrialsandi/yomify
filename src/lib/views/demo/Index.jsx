@@ -305,7 +305,13 @@ const Content = () => {
 			/>
 			<AnimatePresence>
 				{intro && (
-					<div key="intro" className="absolute z-10 h-full w-full">
+					<motion.div
+						key="intro"
+						className="absolute bg-black/80 z-10 h-full w-full flex justify-center items-center"
+						animate={{ opacity: 1, scale: 1 }}
+						exit={{ opacity: 0, scale: 1.2 }}
+						transition={{ duration: 0.6, ease: "easeOut" }}
+					>
 						<motion.img
 							src="/demo/intro.webp"
 							alt=""
@@ -315,10 +321,8 @@ const Content = () => {
 							transition={{ duration: 0.6, ease: "easeOut" }}
 						/>
 						<button
-							className="absolute left-1/2 top-[75%]"
+							className="absolute left-1/2 top-[81%]"
 							style={{
-								top: `81%`,
-								left: `50%`,
 								width: `38%`,
 								height: "12%",
 								transform: "translate(-50%, -50%)",
@@ -333,7 +337,7 @@ const Content = () => {
 								}
 							}}
 						/>
-					</div>
+					</motion.div>
 				)}
 
 				<div className="relative w-full">
