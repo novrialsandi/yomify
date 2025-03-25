@@ -8,7 +8,7 @@ const Amplop = ({ visible, onClose }) => {
 
 	return (
 		<Modal position="center" visible={visible} onClose={onClose} preventClose>
-			<div className="relative aspect-9/16  w-auto text-[#86B595] bg-[#F1EDCA] flex flex-col justify-center items-center">
+			<div className="relative py-8 w-auto text-[#86B595] bg-[#F1EDCA] flex flex-col justify-center items-center">
 				<button
 					className="absolute z-50 size-10"
 					style={{ top: `3%`, left: `5%` }}
