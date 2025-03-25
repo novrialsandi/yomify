@@ -312,7 +312,7 @@ const Content = () => {
 							className="h-auto"
 							animate={{ opacity: 1, scale: 1 }}
 							exit={{ opacity: 0, scale: 1.2 }}
-							transition={{ duration: 1, ease: "easeOut" }}
+							transition={{ duration: 0.6, ease: "easeOut" }}
 						/>
 						<button
 							className="absolute left-1/2 top-[75%]"
