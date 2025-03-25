@@ -8,6 +8,7 @@ import Date from "./Date";
 import Amplop from "./Amplop";
 import Laptop from "./Laptop";
 import Trex from "./Trex";
+import { Icon } from "@iconify/react";
 
 const ModalContent = ({
 	contents,
@@ -109,8 +110,21 @@ const ModalContent = ({
 								visible={modalContent[item.name]}
 								position="center"
 								onClose={() => toggleModal(item.name)}
+								preventClose
 							>
 								<div className="text-white flex flex-col justify-center items-center p-6">
+									<button
+										className="absolute z-50 size-10"
+										style={{ top: `5%`, left: `5%` }}
+										onClick={() => {
+											toggleModal(item.name);
+										}}
+									>
+										<Icon
+											icon="entypo:arrow-left"
+											className="w-full h-full text-[#CE4F3E] stroke-1.5 stroke-[#FAF9DB]"
+										/>
+									</button>
 									<img src={item.img} alt="" className="h-auto" />
 									<div className="whitespace-pre-line w-full">
 										<a
