@@ -5,10 +5,10 @@ import { Icon } from "@iconify/react";
 const Yomi = ({ visible, onClose, item }) => {
 	return (
 		<Modal position="center" visible={visible} onClose={onClose} preventClose>
-			<div className="relative text-white flex flex-col justify-center items-center p-6">
+			<div className="relative text-white flex flex-col justify-center items-center ">
 				<button
 					className="absolute z-50 size-10"
-					style={{ top: `5%`, left: `5%` }}
+					style={{ top: `3%`, left: `3%` }}
 					onClick={() => {
 						onClose();
 					}}
