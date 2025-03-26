@@ -170,6 +170,16 @@ export const contents = [
 		img: "/demo/base/trex.webp",
 		detail: "",
 	},
+	{
+		trivia: true,
+		audio: "yomi.wav",
+		name: "yomi",
+		w: 21.6,
+		x: 35.9,
+		y: 66.1,
+		img: "/demo/base/yomi.webp",
+		detail: "",
+	},
 ];
 
 export const stepsDemo = [

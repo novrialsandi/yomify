@@ -9,6 +9,7 @@ import Amplop from "./Amplop";
 import Laptop from "./Laptop";
 import Trex from "./Trex";
 import { Icon } from "@iconify/react";
+import Yomi from "./Yomi";
 
 const ModalContent = ({
 	contents,
@@ -97,6 +98,15 @@ const ModalContent = ({
 					} else if (item.name === "trex") {
 						return (
 							<Trex
+								key={item.name}
+								item={item}
+								visible={modalContent[item.name]}
+								onClose={() => toggleModal(item.name)}
+							/>
+						);
+					} else if (item.name === "yomi") {
+						return (
+							<Yomi
 								key={item.name}
 								item={item}
 								visible={modalContent[item.name]}
