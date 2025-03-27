@@ -44,6 +44,7 @@ const LandingPage = () => {
 				>
 					Yomify
 				</motion.div>
+
 				<motion.img
 					src="/meta.webp"
 					alt="Meta"
@@ -52,13 +53,21 @@ const LandingPage = () => {
 					animate={{ opacity: 1 }}
 					transition={{ duration: 1 }}
 				/>
-				<motion.p
+
+				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8, delay: 0.3 }}
-					className="text-center text-xl  text-gray-700"
+					className="text-center text-4xl font-bold"
 				>
-					<div className="text-3xl font-bold">Interactive Web Experiences</div>
+					Interactive Web Experiences
+				</motion.div>
+				<motion.p
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 1, delay: 0.5 }}
+					className="text-lg text-center"
+				>
 					Display images based on the story or concept you want to showcase.
 				</motion.p>
 
