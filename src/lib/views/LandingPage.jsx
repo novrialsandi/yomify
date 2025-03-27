@@ -52,23 +52,16 @@ const LandingPage = () => {
 					animate={{ opacity: 1 }}
 					transition={{ duration: 1 }}
 				/>
-				<motion.div
+				<motion.p
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8, delay: 0.3 }}
-					className="text-center text-4xl font-bold"
+					className="text-center text-xl  text-gray-700"
 				>
-					Interactive Web Experiences
-				</motion.div>
-				<motion.p
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 1, delay: 0.5 }}
-					className="text-lg text-center"
-				>
-					Engage your audience with clickable visuals that reveal event details,
-					stories, and more.
+					<div className="text-3xl font-bold">Interactive Web Experiences</div>
+					Display images based on the story or concept you want to showcase.
 				</motion.p>
+
 				<motion.div
 					initial={{ opacity: 0, y: 10 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -123,8 +116,8 @@ const LandingPage = () => {
 					transition={{ duration: 1 }}
 					className="text-center text-white"
 				>
-					*The illustrations for this product are paid as we{" "}
-					<span className="text-[#F66A5B]"> do not use </span>
+					* The illustrations for this product are paid, as we{" "}
+					<span className="text-[#F66A5B] underline"> do not use </span>
 					AI-generated images.
 				</motion.div>
 			</motion.div>
