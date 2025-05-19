@@ -1,4 +1,4 @@
-## About
+# About
 
 Yomify: Wedding Invitation is an interactive wedding invitation that provides a unique experience for guests. Instead of simply displaying wedding details directly, this invitation encourages guests to interact with various image objects scattered throughout the invitation page.
 
