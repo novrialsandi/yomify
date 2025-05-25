@@ -85,6 +85,7 @@ const TextArea = ({
 					rows={1}
 					onKeyDown={onKeyDown}
 					onChange={handleChange}
+					style={{ fontSize: "16px" }}
 					className={`flex w-full text-lg resize-none items-center min-h-8 rounded-lg border outline-0 focus:border-active focus:ring-0 ${className} ${
 						errorMsg ? "border-error text-error" : ""
 					} ${hasIconLeft ? "pl-12" : "pl-4"} ${
